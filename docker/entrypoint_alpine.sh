@@ -38,6 +38,7 @@ done
 chown -R apache:root /var/lib/snipeit/data/*
 chown -R apache:root /var/lib/snipeit/dumps
 chown -R apache:root /var/lib/snipeit/keys
+chown -R apache:root /var/www/html/storage/
 
 # If the Oauth DB files are not present copy the vendor files over to the db migrations
 if [ ! -f "/var/www/html/database/migrations/*create_oauth*" ]

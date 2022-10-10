@@ -1,4 +1,4 @@
-FROM alpine:3.14.2
+FROM snipe-it-snipeit
 # Apache + PHP
 RUN  apk add --no-cache \
         apache2 \
@@ -71,7 +71,15 @@ RUN mkdir -p /var/www/.composer && chown apache /var/www/.composer
 
 # Install dependencies
 USER apache
-RUN COMPOSER_CACHE_DIR=/dev/null composer install --no-dev --working-dir=/var/www/html
+# RUN COMPOSER_CACHE_DIR=/dev/null composer install --no-dev --working-dir=/var/www/html
+
+ARG APP_ENV
+ENV APP_ENV $APP_ENV
+
+RUN if  [ "${APP_ENV}" = "develop" ]; \
+    then COMPOSER_CACHE_DIR=/dev/null composer install  --working-dir=/var/www/html; \
+    else COMPOSER_CACHE_DIR=/dev/null composer install  --no-dev --working-dir=/var/www/html; \
+    fi
 
 USER root
 
