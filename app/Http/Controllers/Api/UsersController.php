@@ -311,7 +311,7 @@ class UsersController extends Controller
         $user->password = bcrypt($request->get('password', $tmp_pass));
 
         app('App\Http\Requests\ImageUploadRequest')->handleImages($user, 600, 'image', 'avatars', 'avatar');
-        
+
         if ($user->save()) {
             if ($request->filled('groups')) {
                 $user->groups()->sync($request->input('groups'));
@@ -358,12 +358,12 @@ class UsersController extends Controller
 
         /**
          * This is a janky hack to prevent people from changing admin demo user data on the public demo.
-         * 
+         *
          * The $ids 1 and 2 are special since they are seeded as superadmins in the demo seeder.
-         * 
+         *
          *  Thanks, jerks. You are why we can't have nice things. - snipe
-         * 
-         */ 
+         *
+         */
 
 
         if ((($id == 1) || ($id == 2)) && (config('app.lock_passwords'))) {
@@ -372,7 +372,7 @@ class UsersController extends Controller
 
 
         $user->fill($request->all());
-        
+
         if ($user->id == $request->input('manager_id')) {
             return response()->json(Helper::formatStandardApiResponse('error', null, 'You cannot be your own manager'));
         }
@@ -400,9 +400,9 @@ class UsersController extends Controller
         Asset::where('assigned_type', User::class)
             ->where('assigned_to', $user->id)->update(['location_id' => $request->input('location_id', null)]);
 
-        
+
         app('App\Http\Requests\ImageUploadRequest')->handleImages($user, 600, 'image', 'avatars', 'avatar');
-          
+
         if ($user->save()) {
 
             // Sync group memberships:
@@ -538,7 +538,7 @@ class UsersController extends Controller
     {
         $this->authorize('view', User::class);
         $this->authorize('view', License::class);
-        
+
         if ($user = User::where('id', $id)->withTrashed()->first()) {
             $licenses = $user->licenses()->get();
             return (new LicensesTransformer())->transformLicenses($licenses, $licenses->count());
@@ -609,7 +609,7 @@ class UsersController extends Controller
 
             return response()->json(Helper::formatStandardApiResponse('success', null, trans('admin/users/message.success.restored')));
         }
-        
+
         $id = $userId;
         return response()->json(Helper::formatStandardApiResponse('error', null, trans('admin/users/message.user_not_found', compact('id'))), 200);
     }

@@ -42,7 +42,7 @@ class ComponentTest extends BaseTest
         $component = Component::factory()->ramCrucial4()
             ->create(
                 [
-                    'category_id' => 
+                    'category_id' =>
                         Category::factory()->create(
                             [
                                 'category_type' => 'component'

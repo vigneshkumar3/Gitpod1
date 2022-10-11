@@ -10,7 +10,7 @@ Follow the instructions for installing the application locally,
 making sure to have also run the [database migrations](link to db migrations).
 
 
-## Unit Tests 
+## Unit Tests
 
 The application will use values in the `.env.testing` file located
 in the root directory to override the
@@ -41,7 +41,7 @@ you want to run.
 
 `php artisan test --env=testing tests/Unit/AccessoryTest.php`
 
-## Browser Tests 
+## Browser Tests
 
 The browser tests use [Dusk](https://laravel.com/docs/8.x/dusk) to run them.
 When troubleshooting any problems, make sure that your `.env` file is configured

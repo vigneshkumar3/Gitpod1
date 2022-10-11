@@ -32020,7 +32020,7 @@ var effectsEffectTransfer = effect;
     // (unsupported) conversion from "iframe" to the actual type.
     options.dataTypes.shift();
 
-    // Use the data from the original AJAX options, as it doesn't seem to be 
+    // Use the data from the original AJAX options, as it doesn't seem to be
     // copied over since jQuery 1.7.
     // See https://github.com/cmlenz/jquery-iframe-transport/issues/6
     options.data = origOptions.data;
@@ -38276,7 +38276,7 @@ var Lightbox = (function ($) {
             for(i = 97; i < 123; i++) {
                 lower_letters_array.push(i);
             }
-            
+
             special_chars_array = [33, 35, 64, 36, 38, 42, 91, 93, 123, 125, 92, 47, 63, 58, 59, 95, 45].concat(settings.additionalSpecialChars);
 
             return this.each(function(){
@@ -39948,7 +39948,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -55551,7 +55551,7 @@ return SignaturePad;
     if(this.length === 0) {
       return;
     }
-    
+
     var $elements = this[0].nodeName === 'FORM' ? this.find('*[data-validation-event]') : this;
     $elements
       .each(function () {
@@ -57253,9 +57253,9 @@ return SignaturePad;
 
         if(language.badAlphaNumericAndExtraAndSpaces && language.badAlphaNumericAndExtra) {
           if(hasSpaces) {
-            this.errorMessage = language.badAlphaNumericAndExtraAndSpaces + extra; 
+            this.errorMessage = language.badAlphaNumericAndExtraAndSpaces + extra;
           } else {
-            this.errorMessage = language.badAlphaNumericAndExtra + extra + language.badAlphaNumericExtra; 
+            this.errorMessage = language.badAlphaNumericAndExtra + extra + language.badAlphaNumericExtra;
           }
         } else {
           this.errorMessage = language.badAlphaNumeric + language.badAlphaNumericExtra + extra;

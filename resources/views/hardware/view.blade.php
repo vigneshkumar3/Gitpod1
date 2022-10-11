@@ -9,7 +9,7 @@
 {{-- Right header --}}
 @section('header_right')
 
-    
+
     @can('manage', \App\Models\Asset::class)
         @if ($asset->deleted_at=='')
         <div class="dropdown pull-right">
@@ -17,7 +17,7 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu pull-right" role="menu">
-                
+
                 @if (($asset->assetstatus) && ($asset->assetstatus->deployable=='1'))
                     @if (($asset->assigned_to != '') && ($asset->deleted_at==''))
                         @can('checkin', \App\Models\Asset::class)
@@ -139,12 +139,12 @@
                           </span>
                           <span class="hidden-xs hidden-sm">{{ trans('general.assets') }}
                             {!! ($asset->assignedAssets()->count() > 0 ) ? '<badge class="badge badge-secondary">'.number_format($asset->assignedAssets()->count()).'</badge>' : '' !!}
-                            
+
                           </span>
                         </a>
                     </li>
 
-                
+
                     <li>
                         <a href="#history" data-toggle="tab">
                           <span class="hidden-lg hidden-md">
@@ -189,7 +189,7 @@
                     </a>
                     </li>
 
-                   
+
                     @can('update', \App\Models\Asset::class)
                         <li class="pull-right">
                             <a href="#" data-toggle="modal" data-target="#uploadFileModal">
@@ -201,7 +201,7 @@
 
 
                 </ul>
-                
+
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="details">
                         <div class="row">
@@ -298,11 +298,11 @@
                                                 </strong>
                                             </div>
                                             <div class="col-md-6">
-                                                {{ \App\Helpers\Helper::getFormattedDateObject($audit_log->created_at, 'date', false) }} 
-                                                @if ($audit_log->user) 
+                                                {{ \App\Helpers\Helper::getFormattedDateObject($audit_log->created_at, 'date', false) }}
+                                                @if ($audit_log->user)
                                                     (by {{ link_to_route('users.show', $audit_log->user->present()->fullname(), [$audit_log->user->id]) }})
-                                                @endif 
-                                                
+                                                @endif
+
                                             </div>
                                         </div>
                                     @endif
@@ -536,7 +536,7 @@
                                                     @endif
                                                     {{ Helper::formatCurrencyOutput($asset->getDepreciatedValue() )}}
 
-                                                
+
                                             </div>
                                         </div>
                                     @endif
@@ -854,7 +854,7 @@
                                 @if ($asset->deleted_at!='')
                                     <div class="text-center col-md-12" style="padding-bottom: 15px;">
                                         <form method="POST" action="{{ route('restore/hardware', ['assetId' => $asset->id]) }}">
-                                        @csrf 
+                                        @csrf
                                         <button class="btn btn-danger col-md-12">{{ trans('general.restore') }}</button>
                                         </form>
                                     </div>

@@ -23,7 +23,7 @@ use Redirect;
 class CustomFieldsetsController extends Controller
 {
 
-    public function index() 
+    public function index()
     {
         return redirect()->route("fields.index")
         ->with("error", trans('admin/custom_fields/message.fieldset.does_not_exist'));

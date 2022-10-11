@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     [
         'prefix' => 'hardware',
-        'middleware' => ['auth'], 
+        'middleware' => ['auth'],
     ],
-    
+
     function () {
-        
+
         Route::get('bulkaudit',
             [AssetsController::class, 'quickScan']
         )->name('assets.bulkaudit');
@@ -33,7 +33,7 @@ Route::group(
         )->name('hardware/quickscancheckin');
 
         // Asset Maintenances
-        Route::resource('maintenances', 
+        Route::resource('maintenances',
             AssetMaintenancesController::class, [
             'parameters' => ['maintenance' => 'maintenance_id', 'asset' => 'asset_id'],
         ]);
@@ -102,7 +102,7 @@ Route::group(
             [AssetsController::class, 'getLabel']
         )->name('label/hardware');
 
-        Route::post('{assetId}/clone', 
+        Route::post('{assetId}/clone',
             [AssetsController::class, 'postCreate']
         );
 
@@ -126,11 +126,11 @@ Route::group(
             [AssetsController::class, 'show']
         )->name('hardware.view');
 
-        Route::get('{assetId}/qr_code', 
+        Route::get('{assetId}/qr_code',
             [AssetsController::class, 'getQrCode']
         )->name('qr_code/hardware');
 
-        Route::get('{assetId}/barcode', 
+        Route::get('{assetId}/barcode',
             [AssetsController::class, 'getBarCode']
         )->name('barcode/hardware');
 
@@ -175,8 +175,8 @@ Route::group(
         )->name('hardware.bulkcheckout.store');
     });
 
-Route::resource('hardware', 
-        AssetsController::class, 
+Route::resource('hardware',
+        AssetsController::class,
         [
             'middleware' => ['auth'],
             'parameters' => ['asset' => 'asset_id'

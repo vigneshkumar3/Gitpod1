@@ -62,7 +62,7 @@ return [
     ],
 
     'select_country' => 'Select a country',
-    
+
     'countries' => [
         'AC'=>'Ascension Island',
         'AD'=>'Andorra',

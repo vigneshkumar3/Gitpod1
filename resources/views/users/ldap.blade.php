@@ -26,7 +26,7 @@
         <div class="box-body">
           <!-- location_id-->
           <div class="form-group {{ $errors->has('location_id') ? 'has-error' : '' }}">
-            
+
             <div class="col-md-12">
                <!-- Location -->
               @include ('partials.forms.edit.location-select', ['translated_name' => trans('general.location'), 'fieldname' => 'location_id'])

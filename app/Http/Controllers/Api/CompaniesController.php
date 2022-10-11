@@ -80,7 +80,7 @@ class CompaniesController extends Controller
         $company = new Company;
         $company->fill($request->all());
         $company = $request->handleImages($company);
-        
+
         if ($company->save()) {
             return response()->json(Helper::formatStandardApiResponse('success', (new CompaniesTransformer)->transformCompany($company), trans('admin/companies/message.create.success')));
         }

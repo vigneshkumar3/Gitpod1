@@ -42,16 +42,16 @@ class Asset extends Depreciable
 
     /**
      * Run after the checkout acceptance was declined by the user
-     * 
+     *
      * @param  User   $acceptedBy
      * @param  string $signature
-     */ 
+     */
     public function declinedCheckout(User $declinedBy, $signature)
     {
       $this->assigned_to = null;
       $this->assigned_type = null;
-      $this->accepted = null;      
-      $this->save();        
+      $this->accepted = null;
+      $this->save();
     }
 
     /**
@@ -150,27 +150,27 @@ class Asset extends Depreciable
 
     /**
      * The attributes that should be included when searching the model.
-     * 
+     *
      * @var array
      */
     protected $searchableAttributes = [
-      'name', 
-      'asset_tag', 
-      'serial', 
-      'order_number', 
-      'purchase_cost', 
-      'notes', 
+      'name',
+      'asset_tag',
+      'serial',
+      'order_number',
+      'purchase_cost',
+      'notes',
       'created_at',
-      'updated_at',      
-      'purchase_date', 
-      'expected_checkin', 
-      'next_audit_date', 
+      'updated_at',
+      'purchase_date',
+      'expected_checkin',
+      'next_audit_date',
       'last_audit_date',
     ];
 
     /**
      * The relations and their attributes that should be included when searching the model.
-     * 
+     *
      * @var array
      */
     protected $searchableRelations = [
@@ -275,7 +275,7 @@ class Asset extends Depreciable
 
             // The asset status is not archived and is deployable
             if (($this->assetstatus) && ($this->assetstatus->archived == '0')
-                && ($this->assetstatus->deployable == '1')) 
+                && ($this->assetstatus->deployable == '1'))
             {
                 return true;
 
@@ -806,11 +806,11 @@ class Asset extends Depreciable
         foreach ($assets as $asset) {
             $results = preg_match("/\d+$/", $asset['asset_tag'], $matches);
 
-            if ($results) 
+            if ($results)
             {
                 $number = $matches[0];
 
-                if ($number > $max) 
+                if ($number > $max)
                 {
                     $max = $number;
                 }
@@ -1473,7 +1473,7 @@ class Asset extends Depreciable
                         });
                     });
                 }
-            
+
 
             /**
              * THIS CLUNKY BIT IS VERY IMPORTANT
@@ -1494,7 +1494,7 @@ class Asset extends Depreciable
              * assets.location would fail, as that field doesn't exist -- plus we're already searching
              * against those relationships earlier in this method.
              *
-             * - snipe 
+             * - snipe
              *
              */
 

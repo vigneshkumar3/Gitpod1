@@ -30,7 +30,7 @@ class AccessoriesController extends Controller
 
         // This array is what determines which fields should be allowed to be sorted on ON the table itself, no relations
         // Relations will be handled in query scopes a little further down.
-        $allowed_columns = 
+        $allowed_columns =
             [
                 'id',
                 'name',
@@ -97,15 +97,15 @@ class AccessoriesController extends Controller
                 break;
             case 'manufacturer':
                 $accessories = $accessories->OrderManufacturer($order);
-                break;    
+                break;
             case 'supplier':
                 $accessories = $accessories->OrderSupplier($order);
-                break;       
+                break;
             default:
                 $accessories = $accessories->orderBy($column_sort, $order);
                 break;
         }
- 
+
         $total = $accessories->count();
         $accessories = $accessories->skip($offset)->take($limit)->get();
 

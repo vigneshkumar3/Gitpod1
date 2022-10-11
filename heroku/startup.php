@@ -36,16 +36,16 @@ if (getenv("REDIS_URL")) {                    // Heroku Redis
 
 // Set up APP_TRUSTED_PROXIES to allow for the Heroku Router
 // https://devcenter.heroku.com/articles/deploying-symfony4#trusting-the-heroku-router
-file_put_contents('./.env', 'APP_TRUSTED_PROXIES=10.0.0.0/8' . PHP_EOL, FILE_APPEND); 
+file_put_contents('./.env', 'APP_TRUSTED_PROXIES=10.0.0.0/8' . PHP_EOL, FILE_APPEND);
 
 // Set up GD
-file_put_contents('./.env', 'IMAGE_LIB=gd' . PHP_EOL, FILE_APPEND); 
+file_put_contents('./.env', 'IMAGE_LIB=gd' . PHP_EOL, FILE_APPEND);
 
 // Set local FILESYSTEM_DISK and PUBLIC_FILESYSTEM_DISK
-file_put_contents('./.env', 'FILESYSTEM_DISK=local' . PHP_EOL, FILE_APPEND); 
+file_put_contents('./.env', 'FILESYSTEM_DISK=local' . PHP_EOL, FILE_APPEND);
 file_put_contents('./.env', 'PUBLIC_FILESYSTEM_DISK=local_public' . PHP_EOL, FILE_APPEND);
 
 // Set APP_CIPHER
-file_put_contents('./.env', 'APP_CIPHER=AES-256-CBC' . PHP_EOL, FILE_APPEND); 
+file_put_contents('./.env', 'APP_CIPHER=AES-256-CBC' . PHP_EOL, FILE_APPEND);
 
 ?>

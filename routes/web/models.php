@@ -25,7 +25,7 @@ Route::group(['prefix' => 'models', 'middleware' => ['auth']], function () {
     Route::get(
         '{modelId}/clone',
         [
-            AssetModelsController::class, 
+            AssetModelsController::class,
             'getClone'
         ]
     )->name('models.clone.create');
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'models', 'middleware' => ['auth']], function () {
     Route::post(
         '{modelId}/clone',
         [
-            AssetModelsController::class, 
+            AssetModelsController::class,
             'postCreate'
         ]
     )->name('models.clone.store');
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'models', 'middleware' => ['auth']], function () {
     Route::get(
         '{modelId}/view',
         [
-            AssetModelsController::class, 
+            AssetModelsController::class,
             'getView'
         ]
     )->name('view/model');
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'models', 'middleware' => ['auth']], function () {
     Route::post(
         '{modelID}/restore',
         [
-            AssetModelsController::class, 
+            AssetModelsController::class,
             'getRestore'
         ]
     )->name('models.restore.store');
@@ -57,7 +57,7 @@ Route::group(['prefix' => 'models', 'middleware' => ['auth']], function () {
     Route::get(
         '{modelId}/custom_fields',
         [
-            AssetModelsController::class, 
+            AssetModelsController::class,
             'getCustomFields'
         ]
     )->name('custom_fields/model');
@@ -65,7 +65,7 @@ Route::group(['prefix' => 'models', 'middleware' => ['auth']], function () {
     Route::post(
         'bulkedit',
         [
-            BulkAssetModelsController::class, 
+            BulkAssetModelsController::class,
             'edit'
         ]
     )->name('models.bulkedit.index');
@@ -73,7 +73,7 @@ Route::group(['prefix' => 'models', 'middleware' => ['auth']], function () {
     Route::post(
         'bulksave',
         [
-            BulkAssetModelsController::class, 
+            BulkAssetModelsController::class,
             'update'
         ]
     )->name('models.bulkedit.store');
@@ -81,7 +81,7 @@ Route::group(['prefix' => 'models', 'middleware' => ['auth']], function () {
     Route::post(
         'bulkdelete',
         [
-            BulkAssetModelsController::class, 
+            BulkAssetModelsController::class,
             'destroy'
         ]
     )->name('models.bulkdelete.store');

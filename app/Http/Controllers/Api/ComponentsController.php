@@ -29,7 +29,7 @@ class ComponentsController extends Controller
 
         // This array is what determines which fields should be allowed to be sorted on ON the table itself, no relations
         // Relations will be handled in query scopes a little further down.
-        $allowed_columns = 
+        $allowed_columns =
             [
                 'id',
                 'name',
@@ -78,7 +78,7 @@ class ComponentsController extends Controller
         // Check to make sure the limit is not higher than the max allowed
         ((config('app.max_results') >= $request->input('limit')) && ($request->filled('limit'))) ? $limit = $request->input('limit') : $limit = config('app.max_results');
 
-        
+
         $order = $request->input('order') === 'asc' ? 'asc' : 'desc';
         $sort_override =  $request->input('sort');
         $column_sort = in_array($sort_override, $allowed_columns) ? $sort_override : 'created_at';
@@ -159,7 +159,7 @@ class ComponentsController extends Controller
         $component = Component::findOrFail($id);
         $component->fill($request->all());
         $component = $request->handleImages($component);
-        
+
 
         if ($component->save()) {
             return response()->json(Helper::formatStandardApiResponse('success', $component, trans('admin/components/message.update.success')));
@@ -198,7 +198,7 @@ class ComponentsController extends Controller
     public function getAssets(Request $request, $id)
     {
         $this->authorize('view', \App\Models\Asset::class);
-        
+
         $component = Component::findOrFail($id);
         $assets = $component->assets();
 
@@ -282,16 +282,16 @@ class ComponentsController extends Controller
             $max_to_checkin = $component_assets->assigned_qty;
 
             if ($max_to_checkin > 1) {
-                
+
                 $validator = \Validator::make($request->all(), [
                     "checkin_qty" => "required|numeric|between:1,$max_to_checkin"
                 ]);
-    
+
                 if ($validator->fails()) {
                     return response()->json(Helper::formatStandardApiResponse('error', null, 'Checkin quantity must be between 1 and '.$max_to_checkin));
                 }
             }
-            
+
 
             // Validation passed, so let's figure out what we have to do here.
             $qty_remaining_in_checkout = ($component_assets->assigned_qty - (int)$request->input('checkin_qty', 1));
@@ -301,7 +301,7 @@ class ComponentsController extends Controller
             $component_assets->assigned_qty = $qty_remaining_in_checkout;
 
             \Log::debug($component_asset_id.' - '.$qty_remaining_in_checkout.' remaining in record '.$component_assets->id);
-            
+
             \DB::table('components_assets')->where('id',
                 $component_asset_id)->update(['assigned_qty' => $qty_remaining_in_checkout]);
 
@@ -310,7 +310,7 @@ class ComponentsController extends Controller
             if ($qty_remaining_in_checkout == 0) {
                 \DB::table('components_assets')->where('id', '=', $component_asset_id)->delete();
             }
-            
+
 
             $asset = Asset::find($component_assets->asset_id);
 
@@ -322,7 +322,7 @@ class ComponentsController extends Controller
 
         return response()->json(Helper::formatStandardApiResponse('error', null, 'No matching checkouts for that component join record'));
 
-    
+
     }
 
 }

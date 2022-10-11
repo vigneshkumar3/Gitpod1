@@ -10,7 +10,7 @@ class ActionlogController extends Controller
 {
     public function displaySig($filename)
     {
-        // PHP doesn't let you handle file not found errors well with 
+        // PHP doesn't let you handle file not found errors well with
         // file_get_contents, so we set the error reporting for just this class
         error_reporting(0);
 
@@ -25,7 +25,7 @@ class ActionlogController extends Controller
         } else {
             return Response::make($contents)->header('Content-Type', $filetype);
         }
-       
+
     }
     public function getStoredEula($filename){
         $this->authorize('view', \App\Models\Asset::class);

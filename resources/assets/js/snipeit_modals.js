@@ -1,12 +1,12 @@
-/* 
- * 
+/*
+ *
  * Snipe-IT Universal Modal support
- * 
+ *
  * Enables modal dialogs to create sub-resources throughout Snipe-IT
- * 
+ *
  */
 
- /* 
+ /*
  HOW TO USE
 
  Create a Button looking like this:
@@ -19,9 +19,9 @@
  data-target="#createModal" - fixed ID for the modal, do not change
  data-select="assigned_to" - What is the *ID* of the select-dropdown that you're going to be adding to, if the modal-create was a success? Be on the lookout for duplicate ID's, it will confuse this library!
  class="btn btn-sm btn-primary" - makes it look button-ey, feel free to change :)
- 
+
  If you want to pass additional variables to the modal (In the Category Create one, for example, you can pass category_id), you can encode them as URL variables in the href
- 
+
  */
 
 $(function () {
@@ -39,7 +39,7 @@ $(function () {
       model = link.data("dependency");
       select = link.data("select");
       refreshSelector = link.data("refresh");
-      
+
       $('#createModal').load(link.attr('href'),function () {
         //do we need to re-select2 this, after load? Probably.
         $('#createModal').find('select.select2').select2();
@@ -93,7 +93,7 @@ $(function () {
 
   });
 
- 
+
 
   $('#createModal').on('click','#modal-save', function () {
     $.ajax({
@@ -171,16 +171,16 @@ function formatDatalistSafe(datalist) {
     if (datalist.image) {
         var inner_div = $("<div style='width: 30px;'>");
         /******************************************************************
-         * 
-         * We are specifically chosing empty alt-text below, because this 
+         *
+         * We are specifically chosing empty alt-text below, because this
          * image conveys no additional information, relative to the text
          * that will *always* be there in any select2 list that is in use
          * in Snipe-IT. If that changes, we would probably want to change
          * some signatures of some functions, but right now, we don't want
-         * screen readers to say "HP SuperJet 5000, .... picture of HP 
+         * screen readers to say "HP SuperJet 5000, .... picture of HP
          * SuperJet 5000..." and so on, for every single row in a list of
          * assets or models or whatever.
-         * 
+         *
          *******************************************************************/
         var img = $("<img src='' style='max-height: 20px; max-width: 30px;' alt=''>");
         // console.warn("Img is: ");

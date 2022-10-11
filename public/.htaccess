@@ -53,6 +53,3 @@ Options -Indexes
       Require all denied
     </Files>
 </IfModule>
-
-
-

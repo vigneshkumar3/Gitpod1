@@ -216,7 +216,7 @@ return [
     */
 
     'require_saml' => env('REQUIRE_SAML', false),
-    
+
     /*
     |--------------------------------------------------------------------------
     | Demo Mode Lockdown

@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 | Action Log Factories
 |--------------------------------------------------------------------------
 |
-| This simulates checkin/checkout/etc activities 
+| This simulates checkin/checkout/etc activities
 |
 */
 
@@ -58,7 +58,7 @@ class ActionlogFactory extends Factory
                         'assigned_to' => $target->location_id,
                     ]
                 );
-    
+
             return [
                 'created_at'  => $this->faker->dateTimeBetween('-1 years', 'now', date_default_timezone_get()),
                 'user_id' => $user_id,
@@ -67,7 +67,7 @@ class ActionlogFactory extends Factory
                 'item_type'  => \App\Models\Asset::class,
                 'target_id' => $target->id,
                 'target_type' => get_class($target),
-    
+
             ];
         });
     }

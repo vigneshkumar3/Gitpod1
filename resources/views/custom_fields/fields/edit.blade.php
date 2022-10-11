@@ -161,7 +161,7 @@
     <h2>{{ trans('admin/custom_fields/general.about_custom_fields_title') }}</h2>
     <p>{{ trans('admin/custom_fields/general.about_custom_fields_text') }}</p>
   </div>
-  
+
 </div>
 @stop
 

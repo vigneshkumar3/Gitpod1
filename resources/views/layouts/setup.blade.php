@@ -115,7 +115,7 @@
                   </div>
               </div>
           </div>
-          
+
         {{-- Javascript files --}}
           <script src="{{ url('js/dist/all.js') }}" nonce="{{ csrf_token() }}"></script>
 

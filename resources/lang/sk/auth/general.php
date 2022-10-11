@@ -13,4 +13,3 @@ return [
     'username_help_top'                 => 'Vložte Vaše <strong>užívateľské meno</strong> pre odoslanie odkazu emailom na resetovanie hesla.',
     'username_help_bottom'          => 'Vaše používateľské meno a e-mailová adresa <em>môžu</em> byť rovnaké, ale nemusia, v závislosti od vašej konfigurácie. Ak si nepamätáte svoje používateľské meno, obráťte sa na správcu. <br><br><strong>Používateľským menám bez priradenej e-mailovej adresy nebude odoslaný odkaz na obnovenie hesla.</strong> ',
     ];
-

@@ -116,4 +116,4 @@ php artisan config:cache
 
 echo [INFO docker entrypoint] End script execution
 
-exec "$@" 
+exec "$@"

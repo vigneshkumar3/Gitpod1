@@ -11,14 +11,14 @@
 
 {{-- Page content --}}
 @section('inputFields')
-    
+
     @include ('partials.forms.edit.company-select', ['translated_name' => trans('general.company'), 'fieldname' => 'company_id'])
 
 
   <!-- Asset Tag -->
   <div class="form-group {{ $errors->has('asset_tag') ? ' has-error' : '' }}">
     <label for="asset_tag" class="col-md-3 control-label">{{ trans('admin/hardware/form.tag') }}</label>
-    
+
       <!-- we are editing an existing asset -->
       @if  ($item->id)
           <div class="col-md-7 col-sm-12{{  (Helper::checkIfRequired($item, 'asset_tag')) ? ' required' : '' }}">
@@ -40,7 +40,7 @@
           </div>
       @endif
   </div>
-    
+
 
 
 
@@ -115,7 +115,7 @@
         </a>
 
         </div>
-        
+
         <div id="optional_details" class="col-md-12" style="display:none">
         <br>
             @include ('partials.forms.edit.name', ['translated_name' => trans('admin/hardware/form.name')])
@@ -149,7 +149,7 @@
 
         </div>
     </div>
-   
+
 @stop
 
 @section('moar_scripts')

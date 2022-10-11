@@ -66,7 +66,7 @@ class BulkAssetModelsController extends Controller
     public function update(Request $request)
     {
         $this->authorize('update', AssetModel::class);
-      
+
         $models_raw_array = $request->input('ids');
         $update_array = [];
 
@@ -110,7 +110,7 @@ class BulkAssetModelsController extends Controller
     public function destroy(Request $request)
     {
         $this->authorize('delete', AssetModel::class);
-      
+
         $models_raw_array = $request->input('ids');
 
         if ((is_array($models_raw_array)) && (count($models_raw_array) > 0)) {

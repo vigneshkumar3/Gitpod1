@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 | SCIM Routes
 |--------------------------------------------------------------------------
 |
-| These are the routes that we have to explicitly inject from the 
+| These are the routes that we have to explicitly inject from the
 | laravel-scim-server project, which gives Snipe-IT SCIM support
 |
 */

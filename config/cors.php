@@ -36,7 +36,7 @@ return [
     | to accept any value.
     |
     */
-   
+
     'supports_credentials' => false,
     'allowed_origins' => $allowed_origins,
     'allowed_origins_patterns' => [],

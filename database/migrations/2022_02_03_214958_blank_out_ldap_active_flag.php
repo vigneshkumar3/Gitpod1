@@ -19,7 +19,7 @@ class BlankOutLdapActiveFlag extends Migration
             $s->save();
         }
     }
-    
+
     /**
      * Reverse the migrations.
      *

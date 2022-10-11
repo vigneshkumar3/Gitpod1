@@ -58,7 +58,7 @@ class LicenseImporter extends ItemImporter
         $this->item['purchase_order'] = $this->findCsvMatch($row, 'purchase_order');
         $this->item['reassignable'] = $this->findCsvMatch($row, 'reassignable');
         $this->item['seats'] = $this->findCsvMatch($row, 'seats');
-        
+
         $this->item["termination_date"] = null;
         if ($this->findCsvMatch($row, "termination_date")!='') {
             $this->item["termination_date"] = date("Y-m-d 00:00:01", strtotime($this->findCsvMatch($row, "termination_date")));

@@ -60,14 +60,14 @@
 
                     @if ($field->pivot->required)
                     <form method="post" action="{{ route('fields.optional', [$custom_fieldset->id, $field->id]) }}">
-                      @csrf 
+                      @csrf
                       <button type="submit" class="btn btn-link"><i class="fa fa-check text-success" aria-hidden="true"></i></button>
                       </form>
 
                     @else
 
                       <form method="post" action="{{ route('fields.required', [$custom_fieldset->id, $field->id]) }}">
-                      @csrf 
+                      @csrf
                       <button type="submit" class="btn btn-link"><i class="fa fa-times text-danger" aria-hidden="true"></i></button>
                       </form>
                     @endif
@@ -76,7 +76,7 @@
               <td>
                 @can('update', $custom_fieldset)
                 <form method="post" action="{{ route('fields.disassociate', [$field, $custom_fieldset->id]) }}">
-                  @csrf 
+                  @csrf
                   <button type="submit" class="btn btn-sm btn-danger">{{ trans('button.remove') }}</button>
                 </form>
                 @endcan

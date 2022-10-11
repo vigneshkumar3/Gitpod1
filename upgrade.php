@@ -458,6 +458,3 @@ function str_begins($haystack, $needle) {
 function str_ends($haystack,  $needle) {
     return 0 === substr_compare($haystack, $needle, -strlen($needle));
 }
-
-
-

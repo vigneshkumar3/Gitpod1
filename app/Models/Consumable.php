@@ -28,7 +28,7 @@ class Consumable extends SnipeModel
         'category_id'    => 'integer',
         'company_id'     => 'integer',
         'qty'            => 'integer',
-        'min_amt'        => 'integer',    
+        'min_amt'        => 'integer',
      ];
 
     /**

@@ -117,7 +117,7 @@ class User extends SnipeModel implements AuthenticatableContract, AuthorizableCo
 
     /**
      * The relations and their attributes that should be included when searching the model.
-     * 
+     *
      * @var array
      */
     protected $searchableRelations = [
@@ -489,7 +489,7 @@ class User extends SnipeModel implements AuthenticatableContract, AuthorizableCo
 
     /**
      * Generate email from full name
-     * 
+     *
      * @author A. Gianotto <snipe@snipe.net>
      * @since [v2.0]
      *

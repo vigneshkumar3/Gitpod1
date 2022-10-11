@@ -418,7 +418,7 @@ class ReportsController extends Controller
             // Open output stream
             $handle = fopen('php://output', 'w');
             stream_set_timeout($handle, 2000);
-            
+
             if ($request->filled('use_bom')) {
                 fprintf($handle, chr(0xEF).chr(0xBB).chr(0xBF));
             }
@@ -492,7 +492,7 @@ class ReportsController extends Controller
             if ($request->filled('rtd_location')) {
                 $header[] = trans('admin/hardware/form.default_location');
             }
-            
+
             if ($request->filled('rtd_location_address')) {
                 $header[] = trans('general.address');
                 $header[] = trans('general.address');
@@ -594,7 +594,7 @@ class ReportsController extends Controller
             $assets = \App\Models\Company::scopeCompanyables(Asset::select('assets.*'))->with(
                 'location', 'assetstatus', 'company', 'defaultLoc', 'assignedTo',
                 'model.category', 'model.manufacturer', 'supplier');
-            
+
             if ($request->filled('by_location_id')) {
                 $assets->where('assets.location_id', $request->input('by_location_id'));
             }
@@ -665,7 +665,7 @@ class ReportsController extends Controller
             }
 
             $assets->orderBy('assets.id', 'ASC')->chunk(20, function ($assets) use ($handle, $customfields, $request) {
-            
+
                 $executionTime = microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'];
                 \Log::debug('Walking results: '.$executionTime);
                 $count = 0;
@@ -728,7 +728,7 @@ class ReportsController extends Controller
                     if ($request->filled('supplier')) {
                         $row[] = ($asset->supplier) ? $asset->supplier->name : '';
                     }
-                    
+
                     if ($request->filled('location')) {
                         $row[] = ($asset->location) ? $asset->location->present()->name() : '';
                     }
@@ -862,7 +862,7 @@ class ReportsController extends Controller
                         }
                     }
 
-                    
+
                     // CSV_ESCAPE_FORMULAS is set to false in the .env
                     if (config('app.escape_formulas') === false) {
                         fputcsv($handle, $row);

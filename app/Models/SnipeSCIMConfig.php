@@ -22,7 +22,7 @@ class SnipeSCIMConfig extends \ArieTimmerman\Laravel\SCIMServer\SCIMConfig
         $config['map_unmapped'] = false; // anything we don't explicitly map will _not_ show up.
 
         $core_namespace = 'urn:ietf:params:scim:schemas:core:2.0:User';
-        $core = $core_namespace.':'; 
+        $core = $core_namespace.':';
         $mappings =& $config['mapping'][$core_namespace]; //grab this entire key, we don't want to be repeating ourselves
 
         //username - *REQUIRED*
@@ -38,7 +38,7 @@ class SnipeSCIMConfig extends \ArieTimmerman\Laravel\SCIMServer\SCIMConfig
         $mappings['name']['formatted'] = (new AttributeMapping())->ignoreWrite()->setRead(
             function (&$object) {
                 return $object->getFullNameAttribute();
-            } 
+            }
         );
 
         $config['validations'][$core.'emails'] = 'nullable|array';         // emails are not required in Snipe-IT...
@@ -94,7 +94,7 @@ class SnipeSCIMConfig extends \ArieTimmerman\Laravel\SCIMServer\SCIMConfig
         $config['validations'][$core.'preferredLanguage'] = 'string';
         $mappings['preferredLanguage'] = AttributeMapping::eloquent('locale');
 
-        /* 
+        /*
           more snipe-it attributes I'd like to check out (to map to 'enterprise' maybe?):
          - website
          - notes?
@@ -133,7 +133,7 @@ class SnipeSCIMConfig extends \ArieTimmerman\Laravel\SCIMServer\SCIMConfig
                 )->setRead(
                     function (&$object) {
                         return $object->department ? $object->department->name : null;
-                    } 
+                    }
                 ),
             'manager' => [
                 // FIXME - manager writes are disabled. This kinda works but it leaks errors all over the place. Not cool.
@@ -157,7 +157,7 @@ class SnipeSCIMConfig extends \ArieTimmerman\Laravel\SCIMServer\SCIMConfig
                     )->setRead(
                         function (&$object) {
                             return $object->manager_id;
-                        } 
+                        }
                     ),
             ]
         ];

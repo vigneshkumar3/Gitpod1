@@ -12,8 +12,8 @@ class RestoreFromBackup extends Command
      *
      * @var string
      */
-    protected $signature = 'snipeit:restore 
-                                            {--force : Skip the danger prompt; assuming you enter "y"} 
+    protected $signature = 'snipeit:restore
+                                            {--force : Skip the danger prompt; assuming you enter "y"}
                                             {filename : The zip file to be migrated}
                                             {--no-progress : Don\'t show a progress bar}';
 
@@ -270,14 +270,14 @@ class RestoreFromBackup extends Command
             $this->error($err_err);
             throw $e;
         }
-        
+
         if (!feof($sql_contents) || $bytes_read == 0) {
             return $this->error("Not at end of file for sql file, or zero bytes read. aborting!");
         }
-    
+
         fclose($pipes[0]);
         fclose($sql_contents);
-        
+
         $this->line(stream_get_contents($pipes[1]));
         fclose($pipes[1]);
 

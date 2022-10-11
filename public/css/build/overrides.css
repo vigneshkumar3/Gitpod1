@@ -437,7 +437,7 @@ h4 {
 }
 /**
 *  NEW STRIPING
-*  This section is for the new row striping for nicer 
+*  This section is for the new row striping for nicer
 * display for non-table data as of v6
 **/
 .row-new-striped > .row:nth-of-type(even) {
@@ -604,4 +604,3 @@ th.css-accessory > .th-inner::before {
 .main-sidebar {
   margin-top: 50px;
 }
-

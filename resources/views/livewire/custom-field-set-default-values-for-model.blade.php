@@ -18,7 +18,7 @@
             @if ($fields)
                 @foreach ($fields as $field)
                     <div class="form-group">
-                    
+
                             <label class="col-md-3 control-label{{ $errors->has($field->name) ? ' has-error' : '' }}" for="default-value{{ $field->id }}">{{ $field->name }}</label>
 
                             <div class="col-md-7">

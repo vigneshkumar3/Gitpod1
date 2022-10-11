@@ -47,7 +47,7 @@ class CategoryTest extends BaseTest
                 ]
         );
 
-        
+
 
         // Loop through the models and create 2 assets in each model
        $models->each(function ($model) {

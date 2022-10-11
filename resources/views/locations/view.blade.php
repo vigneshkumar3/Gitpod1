@@ -5,7 +5,7 @@
 
  {{ trans('general.location') }}:
  {{ $location->name }}
- 
+
 @parent
 @stop
 
@@ -280,7 +280,7 @@
       </div>
 
 
-		
+
   </div>
 
   </div>

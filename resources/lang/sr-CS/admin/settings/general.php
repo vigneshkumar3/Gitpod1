@@ -252,7 +252,7 @@ return [
     'two_factor_reset_help'        => 'Ovo će primorati korisnika da ponovo registruje svoj uređaj u Google Authenticator. Ovo može biti korisno ako je njihov trenutno registrovan uređaj izgubljen ili ukraden.
 
 
- 
+
  ',
     'two_factor_reset_success'          => 'Dvofaktorski uređaj je uspešno resetovan',
     'two_factor_reset_error'          => 'Resetovanje uređaja sa dva faktora nije uspelo',

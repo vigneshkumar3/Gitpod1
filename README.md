@@ -53,7 +53,7 @@ Please see the [translations documentation](https://snipe-it.readme.io/docs/tran
 
 ### Libraries, Modules & Related Projects
 
-Since the release of the JSON REST API, several third-party developers have been developing modules and libraries to work with Snipe-IT.  
+Since the release of the JSON REST API, several third-party developers have been developing modules and libraries to work with Snipe-IT.
 
 - [Python Module](https://github.com/jbloomer/SnipeIT-PythonAPI) by [@jbloomer](https://github.com/jbloomer)
 - [SnipeSharp - .NET module in C#](https://github.com/barrycarey/SnipeSharp) by [@barrycarey](https://github.com/barrycarey)
@@ -67,7 +67,7 @@ Since the release of the JSON REST API, several third-party developers have been
 - [Snipe-IT Bulk Edit](https://github.com/bricelabelle/snipe-it-bulkedit) - Google Script files to use Google Sheets as a bulk checkout/checkin/edit tool for Snipe-it.
 - [MosyleSnipeSync](https://github.com/RodneyLeeBrands/MosyleSnipeSync) by [@RodneyLeeBrands](https://github.com/RodneyLeeBrands) - Python script to synchronize information between Mosyle and Snipe-IT
 - [WWW::SnipeIT](https://github.com/SEDC/perl-www-snipeit) by [@SEDC](https://github.com/SEDC) - perl module for accessing the API
-                                                     
+
 As these were created by third-parties, Snipe-IT cannot provide support for these project, and you should contact the developers directly if you need assistance. Additionally, Snipe-IT makes no guarantees as to the reliability, accuracy or maintainability of these libraries. Use at your own risk. :)
 
 -----
@@ -85,7 +85,7 @@ The ERD is available [online here](https://drawsql.app/templates/snipe-it).
 
 ### Security
 
-To report a security vulnerability, please email security@snipeitapp.com instead of using the issue tracker. 
+To report a security vulnerability, please email security@snipeitapp.com instead of using the issue tracker.
 
 -----
 
@@ -141,4 +141,3 @@ Thanks goes to all of these wonderful people ([emoji key](https://github.com/ken
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
-

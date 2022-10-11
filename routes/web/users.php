@@ -11,7 +11,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::get(
         'ldap',
         [
-            Users\LDAPImportController::class, 
+            Users\LDAPImportController::class,
             'create'
         ]
     )->name('ldap/user');
@@ -19,7 +19,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::post(
         'ldap',
         [
-            Users\LDAPImportController::class, 
+            Users\LDAPImportController::class,
             'store'
         ]
     );
@@ -27,7 +27,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::get(
         'export',
         [
-            Users\UsersController::class, 
+            Users\UsersController::class,
             'getExportUserCsv'
         ]
     )->name('users.export');
@@ -35,7 +35,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::get(
         '{userId}/clone',
         [
-            Users\UsersController::class, 
+            Users\UsersController::class,
             'getClone'
         ]
     )->name('users.clone.show');
@@ -43,7 +43,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::post(
         '{userId}/clone',
         [
-            Users\UsersController::class, 
+            Users\UsersController::class,
             'postCreate'
         ]
     )->name('users.clone.store');
@@ -51,7 +51,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::post(
         '{userId}/restore',
         [
-            Users\UsersController::class, 
+            Users\UsersController::class,
             'getRestore'
         ]
     )->name('users.restore.store');
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::get(
         '{userId}/unsuspend',
         [
-            Users\UsersController::class, 
+            Users\UsersController::class,
             'getUnsuspend'
         ]
     )->name('unsuspend/user');
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::post(
         '{userId}/upload',
         [
-            Users\UserFilesController::class, 
+            Users\UserFilesController::class,
             'store'
         ]
     )->name('upload/user');
@@ -75,7 +75,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::delete(
         '{userId}/deletefile/{fileId}',
         [
-            Users\UserFilesController::class, 
+            Users\UserFilesController::class,
             'destroy'
         ]
     )->name('userfile.destroy');
@@ -83,7 +83,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::get(
         '{userId}/showfile/{fileId}',
         [
-            Users\UserFilesController::class, 
+            Users\UserFilesController::class,
             'show'
         ]
     )->name('show/userfile');
@@ -91,7 +91,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::post(
         '{userId}/password',
         [
-            Users\UsersController::class, 
+            Users\UsersController::class,
             'sendPasswordReset'
         ]
     )->name('users.password');
@@ -99,7 +99,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::get(
         '{userId}/print',
         [
-            Users\UsersController::class, 
+            Users\UsersController::class,
             'printInventory'
         ]
     )->name('users.print');
@@ -115,7 +115,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::post(
         'bulkedit',
         [
-            Users\BulkUsersController::class, 
+            Users\BulkUsersController::class,
             'edit'
         ]
     )->name('users/bulkedit');
@@ -124,7 +124,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::post(
         'bulksave',
         [
-            Users\BulkUsersController::class, 
+            Users\BulkUsersController::class,
             'destroy'
         ]
     )->name('users/bulksave');
@@ -132,7 +132,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
     Route::post(
         'bulkeditsave',
         [
-            Users\BulkUsersController::class, 
+            Users\BulkUsersController::class,
             'update'
         ]
     )->name('users/bulkeditsave');

@@ -43,4 +43,3 @@ Route::resource('fields', CustomFieldsController::class, [
     'middleware' => ['auth'],
     'parameters' => ['field' => 'field_id', 'fieldset' => 'fieldset_id'],
 ]);
-

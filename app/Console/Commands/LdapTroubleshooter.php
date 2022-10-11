@@ -73,7 +73,7 @@ class LdapTroubleshooter extends Command
 
     /**
      * Output something *only* if debug is enabled
-     * 
+     *
      * @return void
      */
     public function debugout($string)
@@ -283,8 +283,8 @@ class LdapTroubleshooter extends Command
 
             if($this->test_anonymous_bind($ldap_url, false)) {
                 $this->info("Anonymous bind succesful to $ldap_url with certifcate-checks disabled");
-                $ldap_urls[] = [ $ldap_url, false, false ]; 
-                $pretty_ldap_urls[] = [ $ldap_url, "no", "no" ]; 
+                $ldap_urls[] = [ $ldap_url, false, false ];
+                $pretty_ldap_urls[] = [ $ldap_url, "no", "no" ];
                 continue;
             } else {
                 $this->error("WARNING: Failed to bind to $ldap_url with certificate checks disabled. Trying unencrypted with STARTTLS");
@@ -366,7 +366,7 @@ class LdapTroubleshooter extends Command
         $this->info("LDAP TROUBLESHOOTING COMPLETE!");
     }
 
-    public function connect_to_ldap($ldap_url, $check_cert, $start_tls) 
+    public function connect_to_ldap($ldap_url, $check_cert, $start_tls)
     {
         $lconn = ldap_connect($ldap_url);
         ldap_set_option($lconn, LDAP_OPT_PROTOCOL_VERSION, 3); // should we 'test' different protocol versions here? Does anyone even use anything other than LDAPv3?
@@ -415,7 +415,7 @@ class LdapTroubleshooter extends Command
         });
     }
 
-    public function test_authed_bind($ldap_url, $check_cert, $start_tls, $username, $password) 
+    public function test_authed_bind($ldap_url, $check_cert, $start_tls, $username, $password)
     {
         return $this->timed_boolean_execute(function () use ($ldap_url, $check_cert, $start_tls, $username, $password) {
             try {
@@ -467,11 +467,11 @@ class LdapTroubleshooter extends Command
     }
 
     /***********************************************
-     * 
-     * This function executes $function - which is expected to be some kind of executable function - 
+     *
+     * This function executes $function - which is expected to be some kind of executable function -
      * with a timeout set. It respects the timeout by forking execution and setting a strict timer
      * for which to get back a SIGUSR1 or SIGUSR2 signal from the forked process.
-     * 
+     *
      ***********************************************/
     private function timed_boolean_execute($function)
     {

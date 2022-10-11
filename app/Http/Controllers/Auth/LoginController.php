@@ -125,7 +125,7 @@ class LoginController extends Controller
                     $user->last_login = \Carbon::now();
                     $user->save();
                 }
-                
+
             } catch (\Exception $e) {
                 \Log::debug('There was an error authenticating the SAML user: '.$e->getMessage());
                 throw new \Exception($e->getMessage());
@@ -451,7 +451,7 @@ class LoginController extends Controller
         $samlLogout = $request->session()->get('saml_logout');
         $sloRedirectUrl = null;
         $sloRequestUrl = null;
-    
+
         // Only allow GET if we are doing SAML SLO otherwise abort with 405
         if ($request->isMethod('GET') && !$samlLogout) {
             abort(405);

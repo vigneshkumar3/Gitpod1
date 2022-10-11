@@ -143,7 +143,7 @@ class ProfileController extends Controller
         if (!Gate::allows('self.api')) {
             abort(403);
         }
-        
+
         $tokens = $this->tokenRepository->forUser(Auth::user()->getAuthIdentifier());
         $token_values = $tokens->load('client')->filter(function ($token) {
             return $token->client->personal_access_client && ! $token->revoked;

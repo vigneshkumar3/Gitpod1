@@ -26,7 +26,7 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs hidden-print">
-          
+
           <li class="active">
             <a href="#assets" data-toggle="tab">
 

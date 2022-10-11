@@ -27,7 +27,7 @@ class DepreciationTest extends BaseTest
                     ->create(
                         [
                             'category_id' => Category::factory()->assetLaptopCategory(),
-                            'depreciation_id' => $depreciation->id               
+                            'depreciation_id' => $depreciation->id
                         ]);
 
 
@@ -44,7 +44,7 @@ class DepreciationTest extends BaseTest
                     ->create(
                         [
                             'category_id' => Category::factory()->licenseGraphicsCategory(),
-                            'depreciation_id' => $depreciation->id               
+                            'depreciation_id' => $depreciation->id
                         ]);
 
         $this->assertEquals(5, $depreciation->licenses()->count());

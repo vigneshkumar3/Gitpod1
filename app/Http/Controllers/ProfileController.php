@@ -136,7 +136,7 @@ class ProfileController extends Controller
     public function password()
     {
         $user = Auth::user();
-        
+
         return view('account/change-password', compact('user'));
     }
 

@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
 
     /**
      * Render an exception into an HTTP response.
-     * 
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $e
      * @return \Illuminate\Http\Response
@@ -123,7 +123,7 @@ class Handler extends ExceptionHandler
     }
 
 
-    /** 
+    /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
      * @var array

@@ -127,8 +127,8 @@ class CustomFieldsController extends Controller
 
         $this->authorize('update', $field);
 
-        // Check that the field exists - this is mostly related to the demo, where we 
-        // rewrite the data every x minutes, so it's possible someone might be disassociating 
+        // Check that the field exists - this is mostly related to the demo, where we
+        // rewrite the data every x minutes, so it's possible someone might be disassociating
         // a field from a fieldset just as we're wiping the database
         if (($field) && ($fieldset_id)) {
 
@@ -137,13 +137,13 @@ class CustomFieldsController extends Controller
                 ->with('success', trans('admin/custom_fields/message.field.delete.success'));
             } else {
                 return redirect()->back()->withErrors(['message' => "Field is in use and cannot be deleted."]);
-            }  
+            }
 
         }
 
         return redirect()->back()->withErrors(['message' => "Error deleting field from fieldset"]);
 
-       
+
     }
 
     /**
@@ -196,11 +196,11 @@ class CustomFieldsController extends Controller
             'customFormat'      => $customFormat,
             'predefinedFormats' => Helper::predefined_formats(),
         ]);
-        } 
+        }
 
         return redirect()->route("fields.index")
             ->with("error", trans('admin/custom_fields/message.field.invalid'));
-        
+
     }
 
 

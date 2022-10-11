@@ -32,17 +32,17 @@ class Accessory extends SnipeModel
 
     use Searchable;
     use Acceptable;
-    
+
     /**
      * The attributes that should be included when searching the model.
-     * 
+     *
      * @var array
      */
     protected $searchableAttributes = ['name', 'model_number', 'order_number', 'purchase_date', 'notes'];
 
     /**
      * The relations and their attributes that should be included when searching the model.
-     * 
+     *
      * @var array
      */
     protected $searchableRelations = [
@@ -179,7 +179,7 @@ class Accessory extends SnipeModel
 
     /**
      * Get the LAST checkout for this accessory.
-     * 
+     *
      * This is kinda gross, but is necessary for how the accessory
      * pivot stuff works for now.
      *

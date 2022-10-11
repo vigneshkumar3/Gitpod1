@@ -40,7 +40,7 @@ class UserFilesController extends Controller
                 return redirect()->back()->with('error', trans('admin/users/message.upload.nofiles'));
             }
             foreach ($files as $file) {
-                
+
                 $extension = $file->getClientOriginalExtension();
                 $file_name = 'user-'.$user->id.'-'.str_random(8).'-'.str_slug(basename($file->getClientOriginalName(), '.'.$extension)).'.'.$extension;
 

@@ -220,7 +220,7 @@ class LdapSync extends Command
                     // Get the LDAP Manager
                     $ldap_manager = Ldap::findLdapUsers($item['manager'], -1, $this->option('filter'));
 
-                    if($ldap_manager["count"] > 0) { 
+                    if($ldap_manager["count"] > 0) {
                         // Get the Managers username
                         $ldapManagerUsername = $ldap_manager[0][$ldap_result_username][0];
 

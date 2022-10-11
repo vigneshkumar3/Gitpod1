@@ -36,7 +36,7 @@ class UserFactory extends Factory
             'zip' => $this->faker->postcode,
         ];
     }
-    
+
     public function firstAdmin()
     {
         return $this->state(function () {

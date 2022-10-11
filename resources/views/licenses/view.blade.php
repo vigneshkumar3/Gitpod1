@@ -14,7 +14,7 @@
 
     <!-- Custom Tabs -->
     <div class="nav-tabs-custom">
-      
+
       <ul class="nav nav-tabs hidden-print">
 
         <li class="active">
@@ -57,7 +57,7 @@
           </a>
         </li>
 
-    
+
         @can('update', $license)
           <li class="dropdown pull-right">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">

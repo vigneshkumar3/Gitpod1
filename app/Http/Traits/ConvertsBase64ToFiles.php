@@ -37,7 +37,7 @@ trait ConvertsBase64ToFiles
                 if (!$base64Contents) {
                     return;
                 }
-                
+
                 // autogenerate filenames
                 if ($filename == 'auto'){
                     $header = explode(';', $base64Contents, 2)[0];
@@ -64,13 +64,13 @@ trait ConvertsBase64ToFiles
                 $uploadedFile = new UploadedFile($tempFilePath, $filename, null, null, true);
 
                 \Log::debug("Trait: uploadedfile ". $tempFilePath);
-                $this->offsetUnset($key);                                                                                                                                                                                                                                                                                                                                               
+                $this->offsetUnset($key);
                 \Log::debug("Trait: encoded field \"$key\" removed" );
-                
+
                 //Inserting new file  to $this-files does not work so have to deal this after
                 $this->offsetSet($key,$uploadedFile);
                 \Log::debug("Trait:  field \"$key\" inserted as UplodedFile" );
-    
+
             }, null, false);
         });
     }

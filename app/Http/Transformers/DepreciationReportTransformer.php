@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Collection;
 
 /**
  *  This tranformer looks like it's extraneous, since we return as much or more
- * info in the AssetsTransformer, but we want to flatten these results out so that they 
- * don't dislose more information than we want. Folks with depreciation powers don't necessaily 
- * have the right to see additional info, and inspecting the API call here could disclose 
+ * info in the AssetsTransformer, but we want to flatten these results out so that they
+ * don't dislose more information than we want. Folks with depreciation powers don't necessaily
+ * have the right to see additional info, and inspecting the API call here could disclose
  * info they're not supposed to see.
- * 
+ *
  * @author [A. Gianotto] [<snipe@snipe.net>]
  * @since [v5.2.0]
  */
@@ -50,13 +50,13 @@ class DepreciationReportTransformer
 
         /**
          * If there is a NOT an empty purchase cost (meaning not null or '' but it *could* be zero),
-         * format the purchase cost. We coould do this inline in the transformer, but we need that value 
+         * format the purchase cost. We coould do this inline in the transformer, but we need that value
          * for the other calculations that come after, like diff, etc.
          */
         if ($asset->purchase_cost!='') {
             $purchase_cost = $asset->purchase_cost;
         }
-       
+
 
         /**
          * Override the previously set null values if there is a valid model and associated depreciation
@@ -77,12 +77,12 @@ class DepreciationReportTransformer
             $checkout_target = $asset->assigned->name;
             if ($asset->checkedOutToUser()) {
                 $checkout_target = $asset->assigned->getFullNameAttribute();
-            } 
+            }
 
         }
-                   
+
         $array = [
-    
+
             'company' => ($asset->company) ? e($asset->company->name) : null,
             'name' => e($asset->name),
             'asset_tag' => e($asset->asset_tag),
@@ -108,9 +108,9 @@ class DepreciationReportTransformer
             'diff' =>  Helper::formatCurrencyOutput($diff),
             'number_of_months' =>  ($asset->model && $asset->model->depreciation) ? e($asset->model->depreciation->months) : null,
             'depreciation' => (($asset->model) && ($asset->model->depreciation)) ?  e($asset->model->depreciation->name) : null,
-            
 
-        
+
+
         ];
 
         return $array;
@@ -122,5 +122,5 @@ class DepreciationReportTransformer
     }
 
 
-   
+
 }

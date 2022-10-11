@@ -191,15 +191,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'authorize:superuser
         Route::delete('delete/{filename}',
             [SettingsController::class, 'deleteFile'])->name('settings.backups.destroy');
 
-        Route::post('/', 
+        Route::post('/',
             [SettingsController::class, 'postBackups']
         )->name('settings.backups.create');
 
-        Route::post('/restore/{filename}', 
+        Route::post('/restore/{filename}',
             [SettingsController::class, 'postRestore']
         )->name('settings.backups.restore');
 
-        Route::post('/upload', 
+        Route::post('/upload',
             [SettingsController::class, 'postUploadBackup']
         )->name('settings.backups.upload');
 
@@ -223,7 +223,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'authorize:superuser
 |
 */
 Route::group(['prefix' => 'import', 'middleware' => ['auth']], function () {
-    Route::get('/', 
+    Route::get('/',
        [ImportsController::class, 'index']
     )->name('imports.index');
 });
@@ -299,7 +299,7 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('reports/audit', 
+    Route::get('reports/audit',
         [ReportsController::class, 'audit']
     )->name('reports.audit');
 
@@ -495,7 +495,7 @@ Route::group(['middleware' => 'web'], function () {
 //Auth::routes();
 
 Route::get(
-    '/health', 
+    '/health',
     [HealthController::class, 'get']
 )->name('health');
 

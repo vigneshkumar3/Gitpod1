@@ -2,4 +2,3 @@
     <i class="fas fa-check icon-white"></i>
     {{ trans('general.save') }}
 </button>
-

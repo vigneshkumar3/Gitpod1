@@ -10,7 +10,7 @@ Route::group(['prefix' => 'licenses', 'middleware' => ['auth']], function () {
     Route::get('{licenseId}/freecheckout',
         [Licenses\LicensesController::class, 'getFreeLicense']
     )->name('licenses.freecheckout');
-    Route::get('{licenseId}/checkout/{seatId?}', 
+    Route::get('{licenseId}/checkout/{seatId?}',
         [Licenses\LicenseCheckoutController::class, 'create']
     )->name('licenses.checkout');
     Route::post(

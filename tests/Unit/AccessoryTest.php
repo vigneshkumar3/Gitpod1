@@ -18,14 +18,14 @@ class AccessoryTest extends BaseTest
      */
     protected $tester;
 
-    
+
 
     public function testAnAccessoryBelongsToACompany()
     {
         $accessory = Accessory::factory()
         ->create(
             [
-                'company_id' => 
+                'company_id' =>
                     Company::factory()->create()->id]);
         $this->assertInstanceOf(Company::class, $accessory->company);
     }
@@ -45,7 +45,7 @@ class AccessoryTest extends BaseTest
         $accessory = Accessory::factory()->appleBtKeyboard()
             ->create(
                 [
-                    'category_id' => 
+                    'category_id' =>
                         Category::factory()->create(
                             [
                                 'category_type' => 'accessory'

@@ -40,4 +40,3 @@
 | city                | city             |  User                                     |
 | state               | state            |  User                                     |
 | country             | country          |  User                                     |
-

@@ -18,7 +18,7 @@ Route::group(['prefix' => 'consumables', 'middleware' => ['auth']], function () 
 
 
 });
-    
+
 Route::resource('consumables', Consumables\ConsumablesController::class, [
     'middleware' => ['auth'],
     'parameters' => ['consumable' => 'consumable_id'],

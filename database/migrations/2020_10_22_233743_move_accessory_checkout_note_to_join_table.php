@@ -24,7 +24,7 @@ class MoveAccessoryCheckoutNoteToJoinTable extends Migration
         }
 
 
-        
+
 
         // Loop through the checked out accessories, find their related action_log entry, and copy over the note
         // to the newly created note field
@@ -92,6 +92,6 @@ class MoveAccessoryCheckoutNoteToJoinTable extends Migration
             });
         }
 
-    
+
     }
 }

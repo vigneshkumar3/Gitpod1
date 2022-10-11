@@ -9,4 +9,3 @@
         {!! $errors->first($fieldname, '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
     </div>
 </div>
-

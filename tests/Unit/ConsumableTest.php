@@ -15,5 +15,5 @@ class ConsumableTest extends BaseTest
     protected $tester;
 
 
-    
+
 }

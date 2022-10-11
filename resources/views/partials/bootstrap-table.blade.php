@@ -166,7 +166,7 @@
 
 
 
-    
+
 
     // This only works for model index pages because it uses the row's model ID
     function genericRowLinkFormatter(destination) {
@@ -684,10 +684,10 @@
         if (Array.isArray(data)) {
             var field = this.field;
             var total_sum = data.reduce(function(sum, row) {
-                
+
                 return (sum) + (cleanFloat(row[field]) || 0);
             }, 0);
-            
+
             return numberWithCommas(total_sum.toFixed(2));
         }
         return 'not an array';
@@ -695,7 +695,7 @@
 
     function sumFormatterQuantity(data){
         if(Array.isArray(data)) {
-            
+
             // Prevents issues on page load where data is an empty array
             if(data[0] == undefined){
                 return 0.00
@@ -719,7 +719,7 @@
     }
 
     function numberWithCommas(value) {
-        
+
         if ((value) && ("{{$snipeSettings->digit_separator}}" == "1.234,56")){
             var parts = value.toString().split(".");
              parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -778,5 +778,5 @@
     });
 
 </script>
-    
+
 @endpush

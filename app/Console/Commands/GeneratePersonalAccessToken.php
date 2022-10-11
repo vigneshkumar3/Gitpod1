@@ -17,7 +17,7 @@ class GeneratePersonalAccessToken extends Command
      *
      * @var string
      */
-    protected $signature = 'snipeit:make-api-key 
+    protected $signature = 'snipeit:make-api-key
                         {--user_id= : The ID of the user to create the token for.}
                         {--name= : The name of the new API token}
                         {--key-only : Only return the value of the API key}';

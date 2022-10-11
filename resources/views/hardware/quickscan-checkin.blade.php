@@ -16,7 +16,7 @@
         }
     </style>
 
-    
+
 
     <div class="row">
     {{ Form::open(['method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form', 'id' => 'checkin-form' ]) }}
@@ -40,7 +40,7 @@
                             {!! $errors->first('asset_tag', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
                         </div>
                     </div>
-    
+
                     <!-- Locations -->
                     @include ('partials.forms.edit.location-select', ['translated_name' => trans('general.location'), 'fieldname' => 'location_id'])
 
@@ -52,8 +52,8 @@
                                 {!! $errors->first('note', '<span class="alert-msg" aria-hidden="true"><i class="fas fa-times" aria-hidden="true"></i> :message</span>') !!}
                             </div>
                         </div>
-    
-    
+
+
 
                 </div> <!--/.box-body-->
                 <div class="box-footer">
@@ -76,7 +76,7 @@
                     <h2 class="box-title"> {{ trans('general.quickscan_checkin_status') }} (<span id="checkin-counter">0</span> assets checked in) </h2>
                 </div>
                 <div class="box-body">
-    
+
                     <table id="checkedin" class="table table-striped snipe-table">
                         <thead>
                         <tr>

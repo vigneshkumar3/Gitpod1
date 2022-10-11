@@ -16,7 +16,7 @@
         }
     </style>
 
-    
+
 
     <div class="row">
     {{ Form::open(['method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form', 'id' => 'audit-form' ]) }}
@@ -102,7 +102,7 @@
                     <h2 class="box-title"> {{ trans('general.bulkaudit_status') }} (<span id="audit-counter">0</span> assets audited) </h2>
                 </div>
                 <div class="box-body">
-    
+
                     <table id="audited" class="table table-striped snipe-table">
                         <thead>
                         <tr>

@@ -2,7 +2,7 @@
 
 return [
 
-    'undeployable' 		=> '<strong>Varovanie: </strong> Tento majetok bol oznáčený ako nepriraditeľný. 
+    'undeployable' 		=> '<strong>Varovanie: </strong> Tento majetok bol oznáčený ako nepriraditeľný.
                         Ak došlo k zmene, prosím upravte aktuálny stav majetku.',
     'does_not_exist' 	=> 'Majetok neexistuje.',
     'does_not_exist_or_not_requestable' => 'That asset does not exist or is not requestable.',

@@ -25,7 +25,7 @@
           {{ Form::radio('permission['.$localPermission['permission'].']', '1',$userPermissions[$localPermission['permission'] ] == '1',['value'=>"grant", 'class'=>'minimal',  'aria-label'=> 'permission['.$localPermission['permission'].']']) }}
         @endif
 
-        
+
       </td>
       <td class="col-md-1 permissions-item">
         <label class="sr-only" for="{{ 'permission['.$localPermission['permission'].']' }}">{{ 'permission['.$localPermission['permission'].']' }}</label>

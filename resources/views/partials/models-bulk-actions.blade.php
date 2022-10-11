@@ -19,5 +19,3 @@
     @endif
     {{ Form::close() }}
 </div>
-
-

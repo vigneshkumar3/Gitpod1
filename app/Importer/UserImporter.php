@@ -68,7 +68,7 @@ class UserImporter extends ItemImporter
             $user_formatted_array = User::generateFormattedNameFromFullName($user_full_name, Setting::getSettings()->username_format);
             $this->item['username'] = $user_formatted_array['username'];
         }
-        
+
         $user = User::where('username', $this->item['username'])->first();
         if ($user) {
             if (! $this->updating) {
@@ -85,7 +85,7 @@ class UserImporter extends ItemImporter
             Asset::where('assigned_type', User::class)
                 ->where('assigned_to', $user->id)
                 ->update(['location_id' => $user->location_id]);
-            
+
             // \Log::debug('UserImporter.php Updated User ' . print_r($user, true));
             return;
         }
@@ -160,7 +160,7 @@ class UserImporter extends ItemImporter
         $this->logError($department, 'Department');
         return null;
     }
-    
+
     public function sendWelcome($send = true)
     {
         $this->send_welcome = $send;

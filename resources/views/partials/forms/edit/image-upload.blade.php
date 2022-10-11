@@ -17,4 +17,3 @@
         <img id="uploadFile-imagePreview" style="max-width: 200px; display: none;" alt="{{ trans('partials/forms/general.alt_uploaded_image_thumbnail') }}">
     </div>
 </div>
-

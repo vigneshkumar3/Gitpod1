@@ -58,8 +58,8 @@ class AssetFilesController extends Controller
                 } else {
                 Storage::put('private_uploads/assets/'.$file_name, file_get_contents($file));
                 }
-               
-                
+
+
                 $asset->logUpload($file_name, e($request->get('notes')));
             }
 

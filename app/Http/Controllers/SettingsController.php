@@ -625,7 +625,7 @@ class SettingsController extends Controller
 
             // Be careful - this could be a negative number
             $audit_diff_months = ((int)$request->input('audit_interval') - (int)($setting->audit_interval));
-            
+
             // Grab all of the assets that have an existing next_audit_date
             $assets = Asset::whereNotNull('next_audit_date')->get();
 
@@ -1081,11 +1081,11 @@ class SettingsController extends Controller
                         'filesize' => Setting::fileSizeConvert(Storage::size($backup_files[$f])),
                         'modified_value' => $file_timestamp,
                         'modified_display' => date($settings->date_display_format.' '.$settings->time_display_format, $file_timestamp),
-                        
+
                     ];
                 }
 
-               
+
             }
         }
 
@@ -1223,7 +1223,7 @@ class SettingsController extends Controller
                         $upload_filename = 'uploaded-'.date('U').'-'.Str::slug(pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_FILENAME)).'.zip';
 
                         Storage::putFileAs('app/backups', $request->file('file'), $upload_filename);
-            
+
                         return redirect()->route('settings.backups.index')->with('success', 'File uploaded');
                 }
 
@@ -1233,10 +1233,10 @@ class SettingsController extends Controller
 
         } else {
             return redirect()->route('settings.backups.index')->with('error', trans('general.feature_disabled'));
-        }    
+        }
 
-        
-        
+
+
     }
 
     /**
@@ -1250,7 +1250,7 @@ class SettingsController extends Controller
      */
     public function postRestore($filename = null)
     {
-        
+
         if (! config('app.lock_passwords')) {
             $path = 'app/backups';
 
@@ -1269,10 +1269,10 @@ class SettingsController extends Controller
                 \Log::debug('Attempting to restore from: '. storage_path($path).'/'.$filename);
 
                 // run the restore command
-                Artisan::call('snipeit:restore', 
+                Artisan::call('snipeit:restore',
                 [
-                    '--force' => true, 
-                    '--no-progress' => true, 
+                    '--force' => true,
+                    '--no-progress' => true,
                     'filename' => storage_path($path).'/'.$filename
                 ]);
 
@@ -1286,7 +1286,7 @@ class SettingsController extends Controller
                 \Log::debug($migrate_output);
 
                 $find_user = DB::table('users')->where('username', $user->username)->exists();
-                
+
                 if (!$find_user){
                     \Log::warning('Attempting to restore user: ' . $user->username);
                     $new_user = $user->replicate();
@@ -1302,7 +1302,7 @@ class SettingsController extends Controller
                 \Auth::logout();
 
                 return redirect()->route('login')->with('success', 'Your system has been restored. Please login again.');
-                
+
             } else {
                 return redirect()->route('settings.backups.index')->with('error', trans('admin/settings/message.backup.file_not_found'));
             }

@@ -119,7 +119,7 @@ class AssetsTransformer
                     if (($field->format == 'DATE') && (!is_null($value)) && ($value!='')){
                         $value = Helper::getFormattedDateObject($value, 'date', false);
                     }
-                    
+
                     $fields_array[$field->name] = [
                         'field' => e($field->db_column),
                         'value' => e($value),
@@ -141,17 +141,17 @@ class AssetsTransformer
             'restore'       => ($asset->deleted_at!='' && Gate::allows('create', Asset::class)) ? true : false,
             'update'        => ($asset->deleted_at=='' && Gate::allows('update', Asset::class)) ? true : false,
             'delete'        => ($asset->deleted_at=='' && $asset->assigned_to =='' && Gate::allows('delete', Asset::class)) ? true : false,
-        ];      
+        ];
 
 
         if (request('components')=='true') {
-        
+
             if ($asset->components) {
                 $array['components'] = [];
-    
+
                 foreach ($asset->components as $component) {
                     $array['components'][] = [
-                        
+
                             'id' => $component->id,
                             'pivot_id' => $component->pivot->id,
                             'name' => e($component->name),
@@ -159,13 +159,13 @@ class AssetsTransformer
                             'price_cost' => $component->purchase_cost,
                             'purchase_total' => $component->purchase_cost * $component->pivot->assigned_qty,
                             'checkout_date' => Helper::getFormattedDateObject($component->pivot->created_at, 'datetime') ,
-                        
+
                     ];
                 }
             }
 
         }
-        
+
         $array += $permissions_array;
 
         return $array;

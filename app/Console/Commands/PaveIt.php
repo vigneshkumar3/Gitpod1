@@ -86,6 +86,6 @@ class PaveIt extends Command
         // Leave in the demo oauth keys so we don't have to reset them every day in the demos
         \DB::statement('delete from oauth_clients WHERE id > 2');
         \DB::statement('delete from oauth_access_tokens WHERE id > 2');
-    
+
     }
 }

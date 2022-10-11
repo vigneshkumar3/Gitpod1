@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
             $user->save();
             $file_number++;
         }
-        
+
 
 
     }

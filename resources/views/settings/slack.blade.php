@@ -166,15 +166,15 @@
             $("#slackteststatus").html('');
             $("#slacktesticon").html('<i class="fas fa-spinner spin"></i> {{ trans('admin/settings/message.slack.sending') }}');
             $.ajax({
-                
+
                 // If I comment this back in, I always get a success (200) message
-                // Without it, I get 
-                    //  beforeSend: function (xhr) { 
+                // Without it, I get
+                    //  beforeSend: function (xhr) {
                     //  xhr.setRequestHeader("Content-Type","application/json");
                     // xhr.setRequestHeader("Accept","text/json");
                     // },
-            
-                
+
+
                 url: '{{ route('api.settings.slacktest') }}',
                 type: 'POST',
                 headers: {
@@ -223,7 +223,7 @@
                     $("#slackteststatus").addClass('text-danger');
                     $("#slacktesticon").html('<i class="fas fa-exclamation-triangle text-danger"></i><span class="text-danger">' + error_msg+ '</span>');
 
-                    
+
                     if (data.status == 500) {
                         $('#slackteststatus').html('{{  trans('admin/settings/message.slack.500') }}');
                     } else if ((data.status == 400) || (data.status == 422)) {
@@ -231,7 +231,7 @@
                         console.log('Data status was 400 or 422');
 
                         if (typeof errors != 'string') {
-                        
+
                             console.log(errors.length);
 
                             for (i in errors) {

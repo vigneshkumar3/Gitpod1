@@ -56,12 +56,12 @@ class AssetTest extends BaseTest
                         [
                             'category_id' => Category::factory()->assetLaptopCategory()->id
                         ]
-                )->id,   
+                )->id,
                 'warranty_months' => 24,
-                'purchase_date' =>   Carbon::createFromDate(2017, 1, 1)->hour(0)->minute(0)->second(0)                  
+                'purchase_date' =>   Carbon::createFromDate(2017, 1, 1)->hour(0)->minute(0)->second(0)
             ]);
 
-        
+
         $this->assertEquals(Carbon::createFromDate(2017, 1, 1)->format('Y-m-d'), $asset->purchase_date->format('Y-m-d'));
         $this->assertEquals(Carbon::createFromDate(2019, 1, 1)->format('Y-m-d'), $asset->warranty_expires->format('Y-m-d'));
 

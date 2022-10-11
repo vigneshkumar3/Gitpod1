@@ -20,7 +20,7 @@ class CustomFieldSetDefaultValuesForModel extends Component
         if(is_null($this->model_id)){
             return;
         }
-            
+
         $this->model = AssetModel::find($this->model_id); // It's possible to do some clever route-model binding here, but let's keep it simple, shall we?
         $this->fieldset_id = $this->model->fieldset_id;
 
@@ -28,7 +28,7 @@ class CustomFieldSetDefaultValuesForModel extends Component
 
         if ($fieldset = CustomFieldset::find($this->fieldset_id)) {
             $this->fields = CustomFieldset::find($this->fieldset_id)->fields;
-        } 
+        }
 
         $this->add_default_values = ($this->model->defaultValues->count() > 0);
     }
@@ -38,7 +38,7 @@ class CustomFieldSetDefaultValuesForModel extends Component
         if (CustomFieldset::find($this->fieldset_id)) {
             $this->fields = CustomFieldset::find($this->fieldset_id)->fields;
         }
-        
+
     }
 
     public function render()

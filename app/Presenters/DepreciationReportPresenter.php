@@ -165,7 +165,7 @@ class DepreciationReportPresenter extends Presenter
                 "visible" => false,
                 "title" => trans('admin/hardware/form.warranty_expires'),
                 "formatter" => "dateDisplayFormatter"
-            ], 
+            ],
         ];
 
         return json_encode($layout);

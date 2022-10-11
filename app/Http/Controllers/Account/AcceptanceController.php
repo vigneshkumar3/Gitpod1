@@ -132,7 +132,7 @@ class AcceptanceController extends Controller
             }
 
             if (Setting::getSettings()->require_accept_signature == '1') {
-                
+
                 // Check if the signature directory exists, if not create it
                 if (!Storage::exists('private_uploads/signatures')) {
                     Storage::makeDirectory('private_uploads/signatures', 775);
@@ -216,7 +216,7 @@ class AcceptanceController extends Controller
             } else {
                 $path_logo = public_path() . '/uploads/' . $branding_settings->logo;
             }
-            
+
             $data = [
                 'item_tag' => $item->asset_tag,
                 'item_model' => $display_model,

@@ -30,7 +30,7 @@ class ImageUploadRequest extends Request
      */
     public function rules()
     {
-       
+
             return [
                 'image' => 'mimes:png,gif,jpg,jpeg,svg,bmp,svg+xml,webp',
                 'avatar' => 'mimes:png,gif,jpg,jpeg,svg,bmp,svg+xml,webp',
@@ -41,8 +41,8 @@ class ImageUploadRequest extends Request
     {
         return $this->redirector->back()->withInput()->withErrors($errors, $this->errorBag);
     }
-    
-    /** 
+
+    /**
      * Fields that should be traited from base64 to files
      */
     protected function base64FileKeys(): array
@@ -50,7 +50,7 @@ class ImageUploadRequest extends Request
         /**
          * image_source is here just legacy reasons. Api\AssetController
          * had it once to allow encoded image uploads.
-        */ 
+        */
         return [
             'image' => 'auto',
             'image_source' => 'auto'
@@ -90,8 +90,8 @@ class ImageUploadRequest extends Request
             $use_db_field = $db_fieldname;
         }
 
-        
-        // ConvertBase64ToFiles just changes object type, 
+
+        // ConvertBase64ToFiles just changes object type,
         // as it cannot currently insert files to $this->files
         if ($this->offsetGet($form_fieldname) instanceof UploadedFile) {
            $image=$this->offsetGet($form_fieldname);
@@ -174,5 +174,5 @@ class ImageUploadRequest extends Request
 
         return $item;
     }
-    
+
 }

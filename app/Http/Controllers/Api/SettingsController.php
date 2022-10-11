@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator; 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\SlackSettingsRequest;
 use App\Http\Transformers\LoginAttemptsTransformer;
 
@@ -69,7 +69,7 @@ class SettingsController extends Controller
                     $message['user_sync'] = [
                         'message' => 'Connection to LDAP was successful, however there were no users returned from your query. You should confirm the Base Bind DN above.',
                     ];
-    
+
                     return response()->json($message, 400);
                 }
 
@@ -108,7 +108,7 @@ class SettingsController extends Controller
             $validation_errors = implode(' ',$validator->errors()->all());
             return response()->json(['message' => $validator->errors()->all()], 400);
         }
-        
+
 
 
         \Log::debug('Preparing to test LDAP login');
@@ -179,7 +179,7 @@ class SettingsController extends Controller
                 return response()->json(['message' => 'Please check the channel name and webhook endpoint URL ('.e($request->input('slack_endpoint')).'). Slack responded with: '.$e->getMessage()], 400);
             }
 
-        //} 
+        //}
         return response()->json(['message' => 'Something went wrong :( '], 400);
     }
 

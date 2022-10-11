@@ -178,7 +178,7 @@ class AssetModelsController extends Controller
         $assetmodel = AssetModel::findOrFail($id);
         $assetmodel->fill($request->all());
         $assetmodel = $request->handleImages($assetmodel);
-        
+
         /**
          * Allow custom_fieldset_id to override and populate fieldset_id.
          * This is stupid, but required for legacy API support.

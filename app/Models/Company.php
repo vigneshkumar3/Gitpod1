@@ -39,20 +39,20 @@ final class Company extends SnipeModel
     protected $injectUniqueIdentifier = true;
     use ValidatingTrait;
     use Searchable;
-    
+
     /**
      * The attributes that should be included when searching the model.
-     * 
+     *
      * @var array
      */
     protected $searchableAttributes = ['name', 'created_at', 'updated_at'];
 
     /**
      * The relations and their attributes that should be included when searching the model.
-     * 
+     *
      * @var array
      */
-    protected $searchableRelations = [];   
+    protected $searchableRelations = [];
 
     /**
      * The attributes that are mass assignable.

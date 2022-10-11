@@ -28,7 +28,7 @@ class ConsumablesController extends Controller
 
         // This array is what determines which fields should be allowed to be sorted on ON the table itself, no relations
         // Relations will be handled in query scopes a little further down.
-        $allowed_columns = 
+        $allowed_columns =
             [
                 'id',
                 'name',
@@ -38,8 +38,8 @@ class ConsumablesController extends Controller
                 'purchase_cost',
                 'company',
                 'category',
-                'model_number', 
-                'item_no', 
+                'model_number',
+                'item_no',
                 'qty',
                 'image',
                 'notes',
@@ -174,7 +174,7 @@ class ConsumablesController extends Controller
         $consumable = Consumable::findOrFail($id);
         $consumable->fill($request->all());
         $consumable = $request->handleImages($consumable);
-        
+
         if ($consumable->save()) {
             return response()->json(Helper::formatStandardApiResponse('success', $consumable, trans('admin/consumables/message.update.success')));
         }

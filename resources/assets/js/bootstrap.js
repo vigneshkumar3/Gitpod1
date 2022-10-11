@@ -12,7 +12,7 @@ window._ = require('lodash');
  * This resolves the issue of jquery-ui & bootstrap tooltip conflict
  */
 require('jquery-ui');
-jQuery.fn.uitooltip = jQuery.fn.tooltip; 
+jQuery.fn.uitooltip = jQuery.fn.tooltip;
 
 /**
  * Load boostrap
@@ -58,5 +58,3 @@ Vue.http.interceptors.push(function (request, next) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
-
-

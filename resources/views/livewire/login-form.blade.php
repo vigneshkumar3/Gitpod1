@@ -38,26 +38,26 @@
 
                                     <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                                         <label for="username">
-                                            <i class="fas fa-user" aria-hidden="true"></i> 
+                                            <i class="fas fa-user" aria-hidden="true"></i>
                                             {{ trans('admin/users/table.username')  }}
                                         </label>
                                         <input class="form-control" placeholder="{{ trans('admin/users/table.username')  }}" name="username" type="text" autocomplete="off" wire:model="username">
-                                        @error('username') 
+                                        @error('username')
                                             <span class="alert-msg">
                                                 {{ $message }}
-                                            </span> 
+                                            </span>
                                         @enderror
                                     </div>
                                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                         <label for="password">
-                                            <i class="fas fa-key" aria-hidden="true"></i> 
+                                            <i class="fas fa-key" aria-hidden="true"></i>
                                             {{ trans('admin/users/table.password')  }}
                                         </label>
                                         <input class="form-control" placeholder="{{ trans('admin/users/table.password')  }}" name="password" type="password" wire:model="password" autocomplete="off">
-                                        @error('password') 
+                                        @error('password')
                                             <span class="alert-msg">
                                                 {{ $message }}
-                                            </span> 
+                                            </span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         @endif
-                        
+
                     </div>
                     <div class="box-footer">
                         <button class="btn btn-lg btn-primary btn-block" type="submit"{{ $can_submit ? '' : ' disabled' }}>
@@ -92,7 +92,7 @@
                             <a href="{{ route('password.request')  }}">{{ trans('auth/general.forgot_password')  }}</a>
                         @endif
 
-                    
+
                     </div>
                 </div> <!-- end login box -->
 

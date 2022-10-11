@@ -98,7 +98,7 @@ class LicenseFactory extends Factory
                 'seats' => 10,
                 'category_id' => 14,
             ];
-    
+
 
             return $data;
         });

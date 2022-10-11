@@ -41,16 +41,16 @@ class CheckoutableListener
         /**
          * Make a checkout acceptance and attach it in the notification
          */
-        $acceptance = $this->getCheckoutAcceptance($event);       
+        $acceptance = $this->getCheckoutAcceptance($event);
 
         if (! $event->checkedOutTo->locale) {
             Notification::locale(Setting::getSettings()->locale)->send(
-                $this->getNotifiables($event), 
+                $this->getNotifiables($event),
                 $this->getCheckoutNotification($event, $acceptance)
             );
         } else {
             Notification::send(
-                $this->getNotifiables($event), 
+                $this->getNotifiables($event),
                 $this->getCheckoutNotification($event, $acceptance)
             );
         }
@@ -58,7 +58,7 @@ class CheckoutableListener
 
     /**
      * Notify the user about the checked in checkoutable
-     */    
+     */
     public function onCheckedIn($event)
     {
         \Log::debug('onCheckedIn in the Checkoutable listener fired');
@@ -95,7 +95,7 @@ class CheckoutableListener
                 $this->getCheckinNotification($event)
             );
         }
-    }      
+    }
 
     /**
      * Generates a checkout acceptance
@@ -113,12 +113,12 @@ class CheckoutableListener
         $acceptance->assignedTo()->associate($event->checkedOutTo);
         $acceptance->save();
 
-        return $acceptance;      
+        return $acceptance;
     }
 
     /**
      * Gets the entities to be notified of the passed event
-     * 
+     *
      * @param  Event $event
      * @return Collection
      */
@@ -138,13 +138,13 @@ class CheckoutableListener
             $notifiables->push(new AdminRecipient());
         }
 
-        return $notifiables;       
+        return $notifiables;
     }
 
     /**
      * Get the appropriate notification for the event
-     * 
-     * @param  CheckoutableCheckedIn $event 
+     *
+     * @param  CheckoutableCheckedIn $event
      * @return Notification
      */
     private function getCheckinNotification($event)
@@ -158,7 +158,7 @@ class CheckoutableListener
                 break;
             case Asset::class:
                 $notificationClass = CheckinAssetNotification::class;
-                break;    
+                break;
             case LicenseSeat::class:
                 $notificationClass = CheckinLicenseSeatNotification::class;
                 break;
@@ -166,14 +166,14 @@ class CheckoutableListener
 
         \Log::debug('Notification class: '.$notificationClass);
 
-        return new $notificationClass($event->checkoutable, $event->checkedOutTo, $event->checkedInBy, $event->note);  
+        return new $notificationClass($event->checkoutable, $event->checkedOutTo, $event->checkedInBy, $event->note);
     }
 
     /**
      * Get the appropriate notification for the event
-     * 
-     * @param  CheckoutableCheckedIn $event 
-     * @param  CheckoutAcceptance $acceptance 
+     *
+     * @param  CheckoutableCheckedIn $event
+     * @param  CheckoutAcceptance $acceptance
      * @return Notification
      */
     private function getCheckoutNotification($event, $acceptance)
@@ -189,10 +189,10 @@ class CheckoutableListener
                 break;
             case Consumable::class:
                 $notificationClass = CheckoutConsumableNotification::class;
-                break;    
+                break;
             case LicenseSeat::class:
                 $notificationClass = CheckoutLicenseSeatNotification::class;
-                break;                
+                break;
         }
 
         return new $notificationClass($event->checkoutable, $event->checkedOutTo, $event->checkedOutBy, $acceptance, $event->note);
@@ -208,11 +208,11 @@ class CheckoutableListener
         $events->listen(
             \App\Events\CheckoutableCheckedIn::class,
             'App\Listeners\CheckoutableListener@onCheckedIn'
-        ); 
+        );
 
         $events->listen(
             \App\Events\CheckoutableCheckedOut::class,
             'App\Listeners\CheckoutableListener@onCheckedOut'
-        ); 
+        );
     }
 }

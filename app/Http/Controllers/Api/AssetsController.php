@@ -50,20 +50,20 @@ class AssetsController extends Controller
      * @since [v4.0]
      * @return JsonResponse
      */
-    public function index(Request $request, $audit = null) 
+    public function index(Request $request, $audit = null)
     {
 
         $filter_non_deprecable_assets = false;
 
         /**
-         * This looks MAD janky (and it is), but the AssetsController@index does a LOT of heavy lifting throughout the 
-         * app. This bit here just makes sure that someone without permission to view assets doesn't 
-         * end up with priv escalations because they asked for a different endpoint. 
-         * 
-         * Since we never gave the specification for which transformer to use before, it should default 
-         * gracefully to just use the AssetTransformer by default, which shouldn't break anything. 
-         * 
-         * It was either this mess, or repeating ALL of the searching and sorting and filtering code, 
+         * This looks MAD janky (and it is), but the AssetsController@index does a LOT of heavy lifting throughout the
+         * app. This bit here just makes sure that someone without permission to view assets doesn't
+         * end up with priv escalations because they asked for a different endpoint.
+         *
+         * Since we never gave the specification for which transformer to use before, it should default
+         * gracefully to just use the AssetTransformer by default, which shouldn't break anything.
+         *
+         * It was either this mess, or repeating ALL of the searching and sorting and filtering code,
          * which would have been far worse of a mess. *sad face*  - snipe (Sept 1, 2021)
          */
         if (Route::currentRouteName()=='api.depreciation-report.index') {
@@ -72,10 +72,10 @@ class AssetsController extends Controller
             $this->authorize('reports.view');
         } else {
             $transformer = 'App\Http\Transformers\AssetsTransformer';
-            $this->authorize('index', Asset::class);          
+            $this->authorize('index', Asset::class);
         }
-        
-       
+
+
         $settings = Setting::getSettings();
 
         $allowed_columns = [
@@ -333,11 +333,11 @@ class AssetsController extends Controller
 
         $total = $assets->count();
         $assets = $assets->skip($offset)->take($limit)->get();
-        
+
 
         /**
          * Include additional associated relationships
-         */  
+         */
         if ($request->input('components')) {
             $assets->loadMissing(['components' => function ($query) {
                 $query->orderBy('created_at', 'desc');
@@ -347,7 +347,7 @@ class AssetsController extends Controller
 
 
         /**
-         * Here we're just determining which Transformer (via $transformer) to use based on the 
+         * Here we're just determining which Transformer (via $transformer) to use based on the
          * variables we set earlier on in this method - we default to AssetsTransformer.
          */
         return (new $transformer)->transformAssets($assets, $total, $request);
@@ -533,7 +533,7 @@ class AssetsController extends Controller
         */
         if ($request->has('image_source')) {
             $request->offsetSet('image', $request->offsetGet('image_source'));
-        }     
+        }
 
         $asset = $request->handleImages($asset);
 
@@ -627,10 +627,10 @@ class AssetsController extends Controller
             */
             if ($request->has('image_source')) {
                 $request->offsetSet('image', $request->offsetGet('image_source'));
-            }     
+            }
 
-            $asset = $request->handleImages($asset); 
-            
+            $asset = $request->handleImages($asset);
+
             // Update custom fields
             if (($model = AssetModel::find($asset->model_id)) && (isset($model->fieldset))) {
                 foreach ($model->fieldset->fields as $field) {
@@ -704,7 +704,7 @@ class AssetsController extends Controller
         return response()->json(Helper::formatStandardApiResponse('error', null, trans('admin/hardware/message.does_not_exist')), 200);
     }
 
-    
+
 
     /**
      * Restore a soft-deleted asset.
@@ -740,7 +740,7 @@ class AssetsController extends Controller
             }
 
             return response()->json(Helper::formatStandardApiResponse('success', (new AssetsTransformer)->transformAsset($asset, $request), $message));
-        
+
 
         }
         return response()->json(Helper::formatStandardApiResponse('error', null, trans('admin/hardware/message.does_not_exist')), 200);
@@ -829,7 +829,7 @@ class AssetsController extends Controller
 
         // Set the location ID to the RTD location id if there is one
         // Wait, why are we doing this? This overrides the stuff we set further up, which makes no sense.
-        // TODO: Follow up here. WTF. Commented out for now. 
+        // TODO: Follow up here. WTF. Commented out for now.
 
 
 //        if ((isset($target->rtd_location_id)) && ($asset->rtd_location_id!='')) {
@@ -885,7 +885,7 @@ class AssetsController extends Controller
         if ($request->has('status_id')) {
             $asset->status_id = $request->input('status_id');
         }
-        
+
         $checkin_at = $request->filled('checkin_at') ? $request->input('checkin_at').' '. date('H:i:s') : date('Y-m-d H:i:s');
 
 

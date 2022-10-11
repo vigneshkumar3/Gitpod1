@@ -29,17 +29,17 @@
                 <form action="{{ route('api.users.store') }}" onsubmit="return false">
                     <div class="alert alert-danger" id="modal_error_msg" style="display:none">
                     </div>
-                    
+
                     <!-- Setup of default company, taken from asset creator -->
 					@if ($user->company)
 						<input type="hidden" name="company_id" id='modal-company' value='{{ $user->company->id }}' class="form-control">
 					@endif
-					
+
 					<!-- Select company, only for users with multicompany access - replace default company -->
 					<div class="dynamic-form-row">
 						@include ('partials.forms.edit.company-select', ['translated_name' => trans('general.company'), 'fieldname' => 'company_id'])
 					</div>
-                    
+
                     <div class="dynamic-form-row">
                         <div class="col-md-3 col-xs-12"><label for="modal-first_name">{{ trans('general.first_name') }}:</label></div>
                         <div class="col-md-8 col-xs-12 required"><input type='text' name="first_name" id='modal-first_name' class="form-control"></div>
@@ -55,12 +55,12 @@
                         <div class="col-md-8 col-xs-12 required"><input type='text' name="username" id='modal-username' class="form-control"></div>
                     </div>
 
-					<!-- User email address -->		
+					<!-- User email address -->
 					<div class="dynamic-form-row">
                         <div class="col-md-3 col-xs-12"><label for="modal-email">{{ trans('admin/users/table.email') }}:</label></div>
                         <div class="col-md-8 col-xs-12">
 						<input class="form-control" type="text" name="email" id="modal-email" autocomplete="off">
-						{!! $errors->first('email', '<span class="alert-msg" aria-hidden="true">:message</span>') !!} 
+						{!! $errors->first('email', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
 						</div>
                     </div>
 
@@ -77,10 +77,10 @@
                             <div id="modal-generated-password"></div>
                         </div>
                     </div>
-                    
+
 					<!-- Space for keep consistance of layout -->
 					<div class="dynamic-form-row"></div>
-                    
+
 					<!-- Checkbox for activation new user, by default set for activated -->
 					<div class="dynamic-form-row">
                         <div class="col-md-3 col-xs-12"><label for="modal-activated">{{ trans('general.login_enabled') }}:</label></div>
@@ -88,8 +88,8 @@
 						<input type="checkbox" value="1" name="activated" id="modal-activated" class="minimal" {{ (old('activated', $user->activated)) == '1' ? ' checked="checked"' : '' }} aria-label="activated">
 						{{ trans('admin/users/general.activated_help_text') }}
 						</div>
-                    </div>                    
-                    
+                    </div>
+
                 </form>
             </div>
         <div class="modal-footer">

@@ -203,7 +203,7 @@ return [
 ',
     'full_multiple_companies_support_help_text' => 'محدود کردن کاربران (از جمله مدیران) اختصاص داده شده به شرکت ها برای دارایی های شرکت خود را.',
     'full_multiple_companies_support_text' => 'شرکت های متعدد پشتیبانی کامل',
-    'show_in_model_list'   => 'نمایش در مدل کشویی 
+    'show_in_model_list'   => 'نمایش در مدل کشویی
 ',
     'optional'					=> 'اختیاری',
     'per_page'                  => 'نتایج در هر صفحه',

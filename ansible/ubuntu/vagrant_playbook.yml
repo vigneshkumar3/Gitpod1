@@ -14,11 +14,11 @@
         upgrade: yes
         update_cache: yes
     - name: Install Utilities
-      become: true          
+      become: true
       apt:
         name: "{{ packages }}"
-        state: present 
-      vars: 
+        state: present
+      vars:
         packages:
           - nano
           - vim
@@ -82,7 +82,7 @@
         state: present
       register: sql_server
     - name: Start and Enable MySQL server
-      become: true 
+      become: true
       systemd:
         state: started
         enabled: yes
@@ -99,8 +99,8 @@
       replace:
         path: /etc/mysql/mariadb.conf.d/50-server.cnf
         regexp: "127.0.0.1"
-        replace: "0.0.0.0" 
-      become: true         
+        replace: "0.0.0.0"
+      become: true
       notify:
         - restart mysql
     - name: Create snipeit database
@@ -109,7 +109,7 @@
         name: snipeit
         state: present
         login_unix_socket: /var/run/mysqld/mysqld.sock
-    #  
+    #
     # Install Apache Web Server
     #
     - name: Install Apache 2.4
@@ -120,8 +120,8 @@
         packages:
           - apache2
           - libapache2-mod-php
-      become: true    
-      register: apache2_server     
+      become: true
+      register: apache2_server
     - name: Start and Enable Apache2 Server
       become: true
       systemd:
@@ -129,11 +129,11 @@
         state: started
         enabled: yes
     #- name: Disable Apache modules
-    #  become: true 
+    #  become: true
     #  apache2_module:
     #    state: absent
     #    name: "{{ item }}"
-    #  with_items: 
+    #  with_items:
     #    #- mpm_prefork
     #  notify:
     #    - restart apache2
@@ -223,4 +223,3 @@
       systemd:
         name: mysql
         state: restarted
-

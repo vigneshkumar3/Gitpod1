@@ -30,9 +30,9 @@ class NotificationTest extends BaseTest
                         [
                             'category_id' => Category::factory()->assetLaptopCategory()->id
                         ]
-                )->id,   
+                )->id,
                 'warranty_months' => 24,
-                'purchase_date' =>   Carbon::createFromDate(2017, 1, 1)->hour(0)->minute(0)->second(0)                  
+                'purchase_date' =>   Carbon::createFromDate(2017, 1, 1)->hour(0)->minute(0)->second(0)
             ]);
 
         //dd($asset);

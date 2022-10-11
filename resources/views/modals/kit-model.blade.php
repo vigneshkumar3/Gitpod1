@@ -11,7 +11,7 @@
                 {{ csrf_field() }}
                 <div class="alert alert-danger" id="modal_error_msg" style="display:none">
                 </div>
-                
+
                 <div class="dynamic-form-row">
                     <div class="col-md-4 col-xs-12"><label for="modal-model_id">{{ trans('general.asset_model') }}:
                         </label></div>

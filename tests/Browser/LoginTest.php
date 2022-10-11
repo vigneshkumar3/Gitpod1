@@ -37,7 +37,7 @@ class LoginTest extends DuskTestCase
                     ->type('password', 'password')
                     ->press(trans('auth/general.login'))
                     ->assertPathIs('/');
-            $browser->screenshot('dashboard'); 
+            $browser->screenshot('dashboard');
         });
 
         // Delete the user afterwards

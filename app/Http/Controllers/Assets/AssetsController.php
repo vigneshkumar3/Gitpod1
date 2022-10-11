@@ -202,7 +202,7 @@ class AssetsController extends Controller
                 }
 
                 $success = true;
-                
+
             }
         }
 
@@ -213,8 +213,8 @@ class AssetsController extends Controller
             // Cookie::queue(Cookie::make('optional_info', json_decode($_POST['options']), $minutes));
             return redirect()->route('hardware.index')
                 ->with('success', trans('admin/hardware/message.create.success'));
-               
-      
+
+
         }
 
         return redirect()->back()->withInput()->withErrors($asset->getErrors());
