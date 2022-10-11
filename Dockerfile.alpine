@@ -1,4 +1,4 @@
-FROM snipe-it-snipeit
+FROM alpine:3.14.2
 # Apache + PHP
 RUN  apk add --no-cache \
         apache2 \
@@ -45,12 +45,13 @@ COPY  docker/000-default-2.4.conf /etc/apache2/conf.d/default.conf
 
 # Enable mod_rewrite
 RUN sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf
-
+RUN mkdir -p /var/www/html/public/uploads
 COPY . /var/www/html
 
 WORKDIR /var/www/html
 
 COPY docker/docker.env /var/www/html/.env
+
 
 RUN chown -R apache:apache /var/www/html
 
