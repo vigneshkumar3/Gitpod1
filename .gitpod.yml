@@ -11,14 +11,6 @@ ports:
 
 tasks:
   - init: >
-      mysql -u root -e "create database snipeit" &&
-      cp .env.gitpod.example .env &&
-      sed -i "s|APP_URL=|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env &&
-      sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env &&
-      composer install &&
-      npm i &&
-      php artisan migrate --force
-
-      php artisan key:generate
+      npm i
     command: >
-      php -S 0.0.0.0:8000 -t public
+      bash .gp/bash/startup.sh
