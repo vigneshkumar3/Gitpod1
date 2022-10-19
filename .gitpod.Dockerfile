@@ -31,3 +31,5 @@ RUN sudo bash -c ". /tmp/install-project-packages.sh" && rm /tmp/install-project
 
 # Update composer
 RUN bash -c ". /tmp/update-composer.sh" && rm /tmp/update-composer.sh
+# Force the docker image to build by incrementing this value
+ENV INVALIDATE_CACHE=232
