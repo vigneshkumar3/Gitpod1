@@ -3,7 +3,7 @@ image:
 
 ports:
   # Laravel server
-  - port: 8002
+  - port: 8000
     onOpen: open-preview
   # MySQL server
   - port: 3306
