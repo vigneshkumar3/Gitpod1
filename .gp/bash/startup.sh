@@ -43,4 +43,4 @@ sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env
 composer install
 php artisan migrate --force
 php artisan key:generate
-php -S 0.0.0.0:8000 -t public
+nginx && /usr/sbin/php-fpm7.4 --fpm-config .gp/config/fpm.conf
