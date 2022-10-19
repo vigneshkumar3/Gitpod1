@@ -12,5 +12,9 @@ ports:
 tasks:
   - init: >
       npm i
-    command: >
+    command: |
+      # Fix for gitpod snapshots losing the value of $GITPOD_REPO_ROOT more on https://github.com/gitpod-io/gitpod/issues/9804
+      if [ "$GITPOD_REPO_ROOT" == '/workspace' ]; then
+        export GITPOD_REPO_ROOT="$THEIA_WORKSPACE_ROOT"
+      fi
       bash .gp/bash/startup.sh
