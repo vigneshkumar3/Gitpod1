@@ -16,7 +16,7 @@
 
 log='/var/log/workspace-image.log'
 php_version="$(. /tmp/utils.sh php_version)"
-core='rsync grc shellcheck'
+core='rsync grc shellcheck awscli'
 
 # Append the appropriate phpfpm package to core if the current php version is greater than 7.4
 (( $(bc <<<"$php_version > 7.4") )) \
